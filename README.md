@@ -1,18 +1,21 @@
 # LuCI Design Theme for OpenWrt
 
-[![License](https://img.shields.io/github/license/gngpp/luci-theme-design?style=flat)](./LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/gngpp/luci-theme-design/pulls)
-[![Issues Welcome](https://img.shields.io/badge/Issues-welcome-brightgreen.svg?style=flat)](https://github.com/gngpp/luci-theme-design/issues/new)
-[![Release](https://img.shields.io/github/release/gngpp/luci-theme-design.svg?style=flat)](https://github.com/gngpp/luci-theme-design/releases)
-[![Downloads](https://img.shields.io/github/downloads/gngpp/luci-theme-design/total?style=flat)](https://github.com/gngpp/luci-theme-design/releases)
+[![License](https://img.shields.io/github/license/felixmm0606/luci-theme-design?style=flat)](./LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/felixmm0606/luci-theme-design/pulls)
+[![Issues Welcome](https://img.shields.io/badge/Issues-welcome-brightgreen.svg?style=flat)](https://github.com/felixmm0606/luci-theme-design/issues/new)
+[![Release](https://img.shields.io/github/release/felixmm0606/luci-theme-design.svg?style=flat)](https://github.com/felixmm0606/luci-theme-design/releases)
+[![Downloads](https://img.shields.io/github/downloads/felixmm0606/luci-theme-design/total?style=flat)](https://github.com/felixmm0606/luci-theme-design/releases)
 
 `luci-theme-design` 是一个针对移动端和 PC 端沉浸式 WebApp 体验进行优化的 OpenWrt LuCI 主题。
 
 - 基于 `luci-theme-neobird` 二次开发，适用于 [LEDE](https://github.com/coolsnowwolf/lede)。
-- 模板已迁移到 ucode（`ucode/template/themes/design/*.ut`），不再依赖 `luci-lua-runtime`。
+- 模板已迁移到 ucode（`ucode/template/themes/design/*.ut`），**不再依赖 `luci-lua-runtime`**。
 - 需要支持 ucode 模板的 LuCI（OpenWrt 23.05 及以上或 LuCI master）。
 - 登录页由主题自带的 `ucode/template/themes/design/sysauth.ut` 提供，沿用主题 CSS 需要的 `fieldset`、`cbi-input-user`、`cbi-input-password` 结构。
 - JS 分支由 [papagaye744](https://github.com/papagaye744) 维护。
+
+> [!IMPORTANT]
+> 本仓库 `ucode` 分支为主要开发分支，已完成从 Lua 到 ucode 的完整迁移。`main` 分支保留旧版 Lua 实现仅供参考。
 
 ## 主要特点
 
@@ -23,6 +26,14 @@
 - 支持插件式配置主题。
 - 流畅度比肩 Bootstrap。
 
+## 分支说明
+
+| 分支 | 模板引擎 | 运行时依赖 | 说明 |
+| --- | --- | --- | --- |
+| `ucode` (推荐) | ucode (`.ut`) | `luci-base` | 适用于 OpenWrt 23.05+ / LuCI master |
+| `main` | Lua (`.htm`) | `luci-lua-runtime` | 旧版，适用于 LEDE / 早期 OpenWrt |
+| `js` | — | — | 由 [papagaye744](https://github.com/papagaye744) 维护 |
+
 ## 技术说明
 
 ### ucode 模板
@@ -30,7 +41,10 @@
 主题模板位于：
 
 ```text
-ucode/template/themes/design/*.ut
+ucode/template/themes/design/
+├── header.ut      # 页面头部、导航栏、JS/CSS 资源加载
+├── footer.ut      # 页面底部
+└── sysauth.ut     # 登录页
 ```
 
 不再依赖 `luci-lua-runtime`。
@@ -69,7 +83,7 @@ LUCI_MINIFY_CSS:=0
 {{ resource }}/cbi.js
 ```
 
-`luci.js` 依赖 `cbi.js` 提供的 `String.prototype.format`。缺失时 `new LuCI()` 会直接抛错，所有 JS 视图会永远停留在“正在载入视图”。
+`luci.js` 依赖 `cbi.js` 提供的 `String.prototype.format`。缺失时 `new LuCI()` 会直接抛错，所有 JS 视图会永远停留在"正在载入视图"。
 
 同时必须加载：
 
@@ -101,22 +115,44 @@ JS 表单的标签页通过 `data-tab-title` 和 `data-tab-active="true"` 切换
 
 否则 4 个面板会同时显示，点击标签只会移动下划线。
 
+## 目录结构
+
+```text
+luci-theme-design/
+├── Makefile                                      # OpenWrt 构建配置
+├── dev/
+│   └── style.css                                 # 开发版 CSS（未压缩）
+├── htdocs/luci-static/design/
+│   ├── css/style.css                             # 生产版 CSS
+│   └── js/apply.js                               # 应用配置 JS
+├── ucode/template/themes/design/
+│   ├── header.ut                                 # 页面头部模板 (ucode)
+│   ├── footer.ut                                 # 页面底部模板 (ucode)
+│   └── sysauth.ut                                # 登录页模板 (ucode)
+├── root/etc/uci-defaults/30_luci-theme-design    # 主题注册脚本
+└── preview/                                      # 预览截图
+```
+
 ## 主题配置插件
 
-可以使用 [luci-app-design-config](https://github.com/gngpp/luci-app-design-config) 配置主题：
+可以使用 [luci-app-design-config](https://github.com/felixmm0606/luci-app-design-config) 配置主题：
 
 - 更改深色/浅色模式。
 - 显示/隐藏导航栏。
 - 更换常用的代理图标。
 
+> [!NOTE]
+> 配置插件同样提供 `ucode` 分支版本，已从 Lua CBI 迁移为纯 JS 视图，不再依赖 `luci-compat` 和 `luci-lua-runtime`。
+
 ## 体验 WebApp
 
-在移动端（iOS/iPadOS、Android Chrome）浏览器中打开 LuCI，然后选择“添加到主屏幕”。
+在移动端（iOS/iPadOS、Android Chrome）浏览器中打开 LuCI，然后选择"添加到主屏幕"。
 
 ## 编译
 
 ```bash
-git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+# 使用 ucode 分支
+git clone -b ucode https://github.com/felixmm0606/luci-theme-design.git package/luci-theme-design
 make menuconfig # 选择 LUCI -> Theme -> luci-theme-design
 make V=s
 ```
@@ -125,6 +161,11 @@ make V=s
 
 - 有 bug 欢迎提交 issue。
 - 主题个人配色可能不符合所有人的喜好，欢迎提出配色建议。
+
+## 致谢
+
+- 上游仓库：[0x676e67/luci-theme-design](https://github.com/0x676e67/luci-theme-design)
+- 基础主题：[thinktip/luci-theme-neobird](https://github.com/thinktip/luci-theme-neobird)
 
 ## 预览
 
