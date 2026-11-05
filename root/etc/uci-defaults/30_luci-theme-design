@@ -1,11 +1,18 @@
 #!/bin/sh
 
-if [ "$PKG_UPGRADE" != 1 ]; then
-	uci batch <<-EOF
-		set luci.themes.Design=/luci-static/design
-		set luci.main.mediaurlbase=/luci-static/design
-		commit luci
-	EOF
+# Always (re-)register the theme.  apk/dpkg run this with PKG_UPGRADE=1 when
+# reinstalling or upgrading, and the old guard silently skipped the
+# registration, leaving the theme missing from the theme selector.
+if [ "$(uci -q get luci.themes.Design)" != "/luci-static/design" ]; then
+	uci set luci.themes.Design='/luci-static/design'
 fi
+
+# Activate the theme on a fresh installation.  Never override the theme the
+# user has selected in the meantime when the package is upgraded.
+if [ "$PKG_UPGRADE" != 1 ] || [ -z "$(uci -q get luci.main.mediaurlbase)" ]; then
+	uci set luci.main.mediaurlbase='/luci-static/design'
+fi
+
+uci commit luci
 
 exit 0

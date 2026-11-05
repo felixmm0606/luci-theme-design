@@ -1,2 +1,2839 @@
 :root{--commonRadius0: 8px;--commonRadius1: 5px
  }[data-theme=light]{--bg: #f1f4f5;--mainbg: #fff;--bgwhite: #fff;--activeColor: #5ea69b;--activeBottom: #5ea69b 2px solid;--textColor: rgb(132,119,116);--borderColor: rgba(0,0,0,.15);--navbgColor: rgba(255, 255, 255, .7);--navBorder: 1px solid #f2f2f2;--sectionbgColor: #fff;--sectionbgColor2: #fff;--sectionShaddow: 3px 3px 3px rgba(0,0,0,.05);--sectionBorder: none;--sectiontabBorder: none;--tabmenuBorderLR: none;--tabmenubgColor: none;--tabmenuBottom: #e4eaec 1px solid;--tabmenuRadius: 6px 6px 0 0;--sectionnodeBorder: #f7f7f7 1px solid;--cbilineColor: #f7f7f7 1px solid;--tabbgColor: #fff;--inputbgColor: #f8f8f8;--inputtextColor: #76838f;--inputBorder: 1px solid #e4eaec;--mainleftbgColor: rgb(255,255,255);--bttextColor: #fff;--badgebgColor: #f7f7f7;--badgeBorder: #e4eaec 1px solid;--progressbarColor: #c8c8c8;--progressbar: #5ea69b;--progressbartxtColor: #fff;--logo_color: #222b36;--alertColor: #000000;--alertBackground: rgb(230 230 230);--scrollbarColor:#c5c5c5;--ifaceboxBorderColor: #b8b8b8bd;--ifaceboxFontColor: #404040;--liSelectedColor: #c5c5c5;--vssrStatusColor: #525f7f;--vssrBoxShadow: 0 0 2rem 0 rgb(136 152 170 / 30%)}[data-theme=dark]{--bg: #000;--bgwhite: #000;--textColor: #fefefe;--activeColor: #5ea69b;--activeBottom: #5ea69b 2px solid;--borderColor: #2C2C3A;--navbgColor: hsla(0, 0%, 7%, .8);--navBorder: 1px solid #1c1c1e;--sectionbgColor: #1c1c1e;--sectionbgColor2: #1c1c1e;--sectionShaddow: 3px 3px 3px rgba(0,0,0,.05);--sectionBorder: none;--sectiontabBorder: none;--sectionnodeBorder: #3d3d41 1px solid;--cbilineColor: #2d2d2d 1px solid;--tabbgColor: #1c1c1e;--tabmenuBorderLR: none;--tabmenubgColor: none;--tabmenuBottom: #2d2d2d 1px solid;--tabmenuRadius: 6px 6px 0 0;--inputbgColor: #2f2f2f;--inputtextColor: #fefefe;--inputBorder: 1px solid #4d4d4d;--mainleftbgColor: #000;--bttextColor: #fefefe;--badgebgColor: #fefefe;--badgeBorder: #3d3d40 1px solid;--progressbarColor: #6d6d6d;--progressbar: #5ea69b;--progressbartxtColor: #fefefe;--logo_color: #fefefe;--alertColor: #ffffff;--alertBackground: rgb(30 30 30);--scrollbarColor:#2f2f2f;--ifaceboxBorderColor: #636363bd;--ifaceboxFontColor: #404040;--liSelectedColor: #2f2f2f;--vssrStatusColor: rgb(204, 204, 204);--vssrBoxShadow: 0 0 1rem 0 rgb(0 0 0 / 30%)}@font-face{font-family:icomoon;src:url(../fonts/font.eot);src:url(../fonts/font.eot) format('embedded-opentype'),url(../fonts/font.ttf) format('truetype'),url(../fonts/font.woff) format('woff'),url(../fonts/font.svg) format('svg');font-weight:400;font-style:normal}@font-face{font-family:design;src:url('');src:url(?#iefix) format('embedded-opentype'),url(../fonts/iconfont-Regular.woff2) format('woff2'),url(../fonts/iconfont-Regular.woff) format('woff'),url(../fonts/iconfont-Regular.ttf) format('truetype'),url(#iconfont) format('svg')}@font-face{font-family:genjyuugothic-medium;src:url(../fonts/GenJyuuGothic-Medium.otf) format('opentype')}*::-webkit-scrollbar{width:5px;height:5px}*::-webkit-scrollbar-thumb{background:var(--scrollbarColor);border-radius:2px}div{font-family:hyk2gj}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html,body{margin:0;padding:0;height:100%;font-family:-apple-system,microsoft yahei!important;font-size:.92rem;line-height:150%;background-color:var(--bg);color:var(--textColor)}body div{line-height:150%}a{color:var(--textColor);text-decoration:none}em{font-style:normal!important;line-height:1.5;padding-left:10px}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}select{overflow:hidden!important;width:100%;appearance:none;-webkit-appearance:none;-moz-appearance:none;padding:0 25px 0 10px!important;background-size:24px 16px;background-repeat:no-repeat;background-position:100%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABGCAYAAAA6hjFpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhDNzA0QUE0NjE2QTExRUNCMjJFQkQyRkIyNURDNjE3IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhDNzA0QUEzNjE2QTExRUNCMjJFQkQyRkIyNURDNjE3IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMi41IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzNBNTYzNTY2MTUxMTFFQ0IyMkVCRDJGQjI1REM2MTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzNBNTYzNTc2MTUxMTFFQ0IyMkVCRDJGQjI1REM2MTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6YjzxlAAACsklEQVR42uyaXUsVURSG51T0U/obfUvhhYF0U0HQhZQVIWVJCAkiSUXfRRcaBFbXQVBBRCASFCJBpQQipw+RREkpCa9aG95gs0DMOp6Z7TwvvAxnzczaa6/nzDnzVTndfSVDxdE6WgAQBBCAIIAABAEEIAggAEEAQQABCAIIQBBAAIIAAhAEEAQQgCCAAAStGSAbzA/N+wvSiwPmB6or16bkoY2afLN5r+q4l2MfDpr7zetV2z7zYpmOkAHByNSE0IxDOdUSxr2rOjLVNVC2n6z77hsYmtFnbqlzHS0aN+7DouorFZBH+ibGUCrmO+YjdaqhVeNVHIxm1Ve6P/XH5ibzLwfllvn4Ko8d8t90MEIde1RXaU97n6oJCw7KNXPbKo3ZpvwxjAXV8YTrkCx7piPFQ7lsbq/xWO3K62E0qQ4uDKXn5kbzTxe/YO6o0Rgdypc5GI0anyt1p5fm3eYfLn7e3PmfuTuVJ1YYZ5fG5Up9CQ2qSfMu3m3u+secXdo/1rzGGeTWyfIaUrPmXPycuWeFuXq0X6w55R8q4NwLe3PxlXmn+buLnzX3/mWOXm0fK+RrUP4MICvTG/MO86yLnzFfWmbfi9ou1qzyvS7wnAt/+31YTZxx8ZPmq+709c/pcoifcvEZ5Rku+HyTeB4yYt5unnbxE+YbEZSwvK54rGntP5LAXJN5QPXWvNX8zcWPmm9rHmF5zK0P22/T/hlAaqv35i3mKRc/bB7VMtaUIL5LaI7JPcIdVZMnXXyT+zyp7T4kNr8kn6mPqdlfllj/VevHEpxbsi85fNTP1ycX/2zerPUZQOqrcUGp6nNVMMYTnlPyrwFNCMILLScSn0++r7zUSFVdZ6wJ8aIcQBBAAIIAAhAEEIAggAAEAQQBBCAIIABBAAEIAghAEEAQQJLQbwEGAK/reX2gh5gQAAAAAElFTkSuQmCC)}select,input{color:var(--inputtextColor);padding:5px 10px;font-size:.92rem;font-family:-apple-system,microsoft yahei,sans-serif,Helvetica,Arial,sans-serif;border:var(--inputBorder);background-color:var(--inputbgColor);transition:color 100ms ease,border-color 100ms ease,opacity 100ms ease;-webkit-transition:color 100ms ease,border-color 100ms ease,opacity 100ms ease;outline-style:none;vertical-align:middle;border-radius:var(--commonRadius0);margin:3px 3px 3px 0;height:2.8rem;line-height:2.8rem;max-width:550px}select:not([multiple=multiple]):focus,input:focus{border-color:#948fe1;box-shadow:0 0 6px #948fe1;-webkit-box-shadow:0 0 6px #948fe1;-moz-box-shadow:0 0 6px #948fe1}input[type=file]{border:none;background:0 0;height:auto;line-height:1rem}input[type=checkbox]{height:1.2rem;width:1.2rem}input[type=radio]{height:1.2rem;width:1.2rem;box-shadow:var(--bg)}select[multiple=multiple]{height:auto}.node-docker-images input[type=text]{width:auto!important}input[type=text],input[type=password]{width:100%}code{color:#09c}abbr{text-decoration:underline;cursor:help}br{display:block;margin-bottom:.2px;content:''}hr{margin:1rem 0;border-color:#eee;opacity:.1}header,.main{width:100%;position:absolute}header{background-color:var(--bgwhite);box-shadow:18rem 2px 4px rgba(0,0,0,.08);transition:box-shadow .1s;height:55px;float:left;position:fixed;z-index:101}footer{text-align:right;padding:1rem;color:#aaa;font-size:11px;height:80px;visibility:hidden}footer>a{color:#9a258f;text-decoration:none}text,line{font-family:Verdana!important}.cbi-button-up,.cbi-button-down,.cbi-value-helpicon,.showSide,.main>.loading>span{font-family:icomoon!important;font-size:10px;speak:none;font-style:normal!important;font-weight:400!important;font-variant:normal!important;text-transform:none!important;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.node-services-passwall2 #cbi-passwall2{text-align:center}.node-services-passwall2 input.cbi-button.cbi-button{max-width:unset}.node-services-passwall #set_node_div,.node-services-passwall2 #set_node_div,.node-services-passwall #add_link_div,.node-services-passwall2 #add_link_div{background:var(--sectionbgColor);border-radius:var(--commonRadius0)}.node-services-passwall #add_link_div #nodes_link,.node-services-passwall2 #add_link_div #nodes_link{width:100%!important}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family:-apple-system,microsoft yahei;font-weight:600;line-height:1.1;color:inherit;clear:both;text-transform:capitalize}label.zonebadge.zonebadge-empty{background-color:#03abe8!important}label.zonebadge{border-radius:var(--commonRadius1);padding:2px 5px!important;display:inline-block;cursor:pointer;color:#666}.zonebadge{border-radius:6px;padding:5px}.zonebadge em{padding:3px}svg{background-color:var(--sectionbgColor)}.cbi-section .cbi-section{margin:10px}.node-services-vssr .status-bar{bottom:calc(var(--vssrBottom) + constant(safe-area-inset-bottom));bottom:calc(var(--vssrBottom) + env(safe-area-inset-bottom));background-color:var(--navbgColor);box-shadow:var(--vssrBoxShadow)!important;color:var(--vssrStatusColor)!important}.node-services-vssr .container{padding-bottom:calc(var(--vssrBottom) + constant(safe-area-inset-bottom));padding-bottom:calc(var(--vssrBottom) + env(safe-area-inset-bottom))}.node-services-vssr .ssr-button{min-width:30px}.node-services-vssr #cbi-vssr .panel-title{padding:10px 0 10px 10px!important;letter-spacing:0!important}.node-services-vssr .status .block{border-radius:10px!important;box-shadow:none!important;background-color:var(--sectionbgColor)!important}.node-services-vssr button{border-radius:10px!important}#cbi-vssr-servers .cbi-section-table-row{position:relative;margin:10px!important;padding:8px 15px 8px 70px;box-shadow:none!important;border-radius:10px!important;border:0;color:var(--textColor)!important;text-align:left;line-height:1.7em;overflow:hidden;letter-spacing:normal;background-color:var(--inputbgColor)!important}.cbi-section-table-row.fast{background-color:#add8e6!important}.incon .tp{text-transform:uppercase;color:var(--bg)!important}::file-selector-button{transition:all .1s ease-in-out;border-radius:var(--commonRadius1);border:3px solid #337ab7!important;color:#fff!important;background-color:#337ab7!important;box-sizing:border-box;cursor:pointer}::file-selector-button:hover,::file-selector-button:focus,::file-selector-button:active{color:#fff!important;background-color:#6a65d6!important;border-color:#6a65d6!important}img[src*="/luci-static/resources/icons/port_up.png"]{background-image:url(../images/port_up.png);background-size:32px 32px;height:32px;padding:0 0 0 32px;width:0}img[src*="/luci-static/resources/icons/port_down.png"]{background-image:url(../images/port_down.png);background-size:32px 32px;height:32px;padding:0 0 0 32px;width:0}#wan4_i img[src*="/luci-static/resources/icons/ethernet.png"],#wan6_i img[src*="/luci-static/resources/icons/ethernet.png"],img[src*="/luci-static/resources/icons/ethernet.png"]{background-image:url(../images/ethernet.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/ethernet.png"],#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/ethernet.png"],.ifacebadge img[src*="/luci-static/resources/icons/ethernet.png"],li img[src*="/luci-static/resources/icons/ethernet.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/ethernet.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/ethernet_disabled.png"],#wan6_i img[src*="/luci-static/resources/icons/ethernet_disabled.png"],img[src*="/luci-static/resources/icons/ethernet_disabled.png"]{background-image:url(../images/ethernet_disabled.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/ethernet_disabled.png"],#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/ethernet_disabled.png"],.ifacebadge img[src*="/luci-static/resources/icons/ethernet_disabled.png"],li img[src*="/luci-static/resources/icons/ethernet_disabled.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/ethernet_disabled.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/switch.png"],#wan6_i img[src*="/luci-static/resources/icons/switch.png"],img[src*="/luci-static/resources/icons/switch.png"]{background-image:url(../images/switch.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/switch.png"],#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/switch.png"],.ifacebadge img[src*="/luci-static/resources/icons/switch.png"],li img[src*="/luci-static/resources/icons/switch.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/switch.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/switch_disabled.png"],#wan6_i img[src*="/luci-static/resources/icons/switch_disabled.png"],img[src*="/luci-static/resources/icons/switch_disabled.png"]{background-image:url(../images/switch_disabled.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/switch_disabled.png"],#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/switch_disabled.png"],.ifacebadge img[src*="/luci-static/resources/icons/switch_disabled.png"],li img[src*="/luci-static/resources/icons/switch_disabled.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/switch_disabled.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/wifi.png"],#wan6_i img[src*="/luci-static/resources/icons/wifi.png"],img[src*="/luci-static/resources/icons/wifi.png"]{background-image:url(../images/wifi.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/wifi.png"],#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/wifi.png"],.ifacebadge img[src*="/luci-static/resources/icons/wifi.png"],li img[src*="/luci-static/resources/icons/wifi.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/wifi.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/wifi_disabled.png"],#wan6_i img[src*="/luci-static/resources/icons/wifi_disabled.png"],img[src*="/luci-static/resources/icons/wifi_disabled.png"]{background-image:url(../images/wifi_disabled.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}#cbi-network-lan-ifname_multi img[src*="/luci-static/resources/icons/wifi_disabled.png"],#cbi-network-1-_ifname img[src*="/luci-static/resources/icons/wifi_disabled.png"],.ifacebadge img[src*="/luci-static/resources/icons/wifi_disabled.png"],li img[src*="/luci-static/resources/icons/wifi_disabled.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/wifi_disabled.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/vlan.png"],#wan6_i img[src*="/luci-static/resources/icons/vlan.png"],img[src*="/luci-static/resources/icons/vlan.png"]{background-image:url(../images/vlan.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebadge img[src*="/luci-static/resources/icons/vlan.png"],li img[src*="/luci-static/resources/icons/vlan.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/vlan.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/vlan_disabled.png"],#wan6_i img[src*="/luci-static/resources/icons/vlan_disabled.png"],img[src*="/luci-static/resources/icons/vlan_disabled.png"]{background-image:url(../images/vlan_disabled.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebadge img[src*="/luci-static/resources/icons/vlan_disabled.png"],li img[src*="/luci-static/resources/icons/vlan_disabled.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/vlan_disabled.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/bridge.png"],#wan6_i img[src*="/luci-static/resources/icons/bridge.png"],img[src*="/luci-static/resources/icons/bridge.png"]{background-image:url(../images/bridge.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebadge img[src*="/luci-static/resources/icons/bridge.png"],li img[src*="/luci-static/resources/icons/bridge.png"]{background-image:url(../images/bridge.png);background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px;width:0}#__status-ifc-signal img[src*="/luci-static/resources/icons/bridge.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/bridge_disabled.png"],#wan6_i img[src*="/luci-static/resources/icons/bridge_disabled.png"],img[src*="/luci-static/resources/icons/bridge_disabled.png"]{background-image:url(../images/bridge_disabled.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebadge img[src*="/luci-static/resources/icons/bridge_disabled.png"],li img[src*="/luci-static/resources/icons/bridge_disabled.png"]{background-image:url(../images/bridge_disabled.png);background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px;width:0}#__status-ifc-signal img[src*="/luci-static/resources/icons/bridge_disabled.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/tunnel.png"],#wan6_i img[src*="/luci-static/resources/icons/tunnel.png"],img[src*="/luci-static/resources/icons/tunnel.png"]{background-image:url(../images/tunnel.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebadge img[src*="/luci-static/resources/icons/tunnel.png"],li img[src*="/luci-static/resources/icons/tunnel.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/tunnel.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}#wan4_i img[src*="/luci-static/resources/icons/tunnel_disabled.png"],#wan6_i img[src*="/luci-static/resources/icons/tunnel_disabled.png"],img[src*="/luci-static/resources/icons/tunnel_disabled.png"]{background-image:url(../images/tunnel_disabled.png);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebadge img[src*="/luci-static/resources/icons/tunnel_disabled.png"],li img[src*="/luci-static/resources/icons/tunnel_disabled.png"]{background-size:16px 16px;height:16px;width:16px;padding:0 0 0 16px}#__status-ifc-signal img[src*="/luci-static/resources/icons/tunnel_disabled.png"]{background-size:32px 32px!important;height:32px!important;width:32px!important;padding:0 0 0 32px!important;width:0}img[src*="/luci-static/resources/icons/wifi_big.png"]{background-image:url(../images/wifi_big.png);background-size:64px 64px;height:64px;padding:0 0 0 64px;width:0}img[src*="/luci-static/resources/icons/wifi_big_disabled.png"]{background-image:url(../images/wifi_big_disabled.png);background-size:64px 64px;height:64px;padding:0 0 0 64px;width:0}img[src*="/luci-static/resources/icons/loading.gif"]{background-image:url(../images/loading.gif);background-size:32px 32px;height:32px;width:32px;padding:0 0 0 32px;width:0}.ifacebox-body img{background-size:20px 20px;width:20px!important;height:20px!important;padding:0 0 0 20px!important}.ifacebox-head{border-radius:4px 4px 0 0}img[src*="/luci-static/resources/cbi/add.gif"]{background-image:url(../images/add.png);background-size:20px 20px;height:20px;padding:0 0 0 20px;width:0;z-index:2}img[src*="/luci-static/resources/cbi/remove.gif"]{background-image:url(../images/remove.png);background-size:20px 20px;height:20px;padding:0 0 0 20px;width:0;z-index:2}img[src*="/luci-static/resources/cbi/reload.gif"]{background-image:url(../images/reload.png);background-size:20px 20px;height:20px;padding:0 0 0 20px;width:0;z-index:2}img[src*="/luci-static/resources/icons/signal-75-100.png"]{background-image:url(../images/signal-75-100.png);image-rendering:pixelated;background-size:24px 24px;height:24px;width:24px;padding:0 0 0 24px;z-index:2}img[src*="/luci-static/resources/icons/signal-50-75.png"]{background-image:url(../images/signal-50-75.png);image-rendering:pixelated;background-size:24px 24px;height:24px;width:24px;padding:0 0 0 24px;z-index:2}img[src*="/luci-static/resources/icons/signal-25-50.png"]{background-image:url(../images/signal-25-50.png);image-rendering:pixelated;background-size:24px 24px;height:24px;width:24px;padding:0 0 0 24px;z-index:2}img[src*="/luci-static/resources/icons/signal-0-25.png"]{background-image:url(../images/signal-0-25.png);image-rendering:pixelated;background-size:24px 24px;height:24px;width:24px;padding:0 0 0 24px;z-index:2}img[src*="/luci-static/resources/icons/signal-0.png"]{background-image:url(../images/signal-0.png);image-rendering:pixelated;background-size:24px 24px;height:24px;width:24px;padding:0 0 0 24px;z-index:2}img[src*="/luci-static/resources/icons/signal-none.png"]{background-image:url(../images/signal-none.png);image-rendering:pixelated;background-size:24px 24px;height:24px;width:24px;padding:0 0 0 24px;z-index:2}.myIcon{font-family:design!important;font-style:normal!important;font-variant:normal!important;text-transform:none!important}.myIcon-logout:after{content:"\e005"}.myIcon-reboot:after{content:"\e02a"}.myIcon-wifi:after{content:"\e00c"}.main{top:50px;bottom:0;position:relative;height:100%;height:calc(100% - 4rem)}.main>.loading{position:fixed;width:100%;height:100%;z-index:1000;display:block;background-color:#f0f0f0;top:0}.main>.loading>span{display:block;text-align:center;margin-top:2rem;color:#888;font-size:1rem}.main>.loading>span>.loading-img:before{content:"\e603"}.main>.loading>span>.loading-img{animation:anim-rotate 2s infinite linear;margin-right:.2rem;display:inline-block}.node-main-login{text-align:center;background-color:var(--bgwhite)!important}.node-main-login .cbi-section-node>.cbi-value:nth-of-type(2n){background:0 0}.node-main-login h2{font-size:1.5rem}.node-main-login header{display:none}.node-main-login>.main>.main-left{display:none}.node-main-login>.main>.main-right{width:100%}.node-main-login>.main fieldset{padding:0!important;margin-bottom:1rem;display:inline;background:0 0;border:none;box-shadow:none;overflow:hidden}.node-main-login>.main fieldset .cbi-value-title{display:none!important}.node-main-login>.main .cbi-section{margin-top:10px!important}.node-main-login>.main .cbi-map{}.node-main-login>.main fieldset .cbi-value{}.node-main-login>.main fieldset .cbi-value-title{padding:10px 0 10px 5px!important}.node-main-login>.main .cbi-value{border:none}.node-main-login>.main .cbi-value-title{width:7rem}.node-main-login>.main #maincontent{display:flex;height:100%;text-align:center;align-items:center;align-content:center;justify-content:center}.node-main-login>.main form>div:nth-last-child(1){}.node-main-login>.main .cbi-value>*{display:inline-block!important}.node-main-login>.main .cbi-input-user,.node-main-login>.main .cbi-input-password{appearance:none;outline:0;padding:0 0 0 35px;background-repeat:no-repeat;background-position:10px 10px;background-size:18px 18px;min-width:15rem}.node-main-login>.main .cbi-input-user{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjNjI3Mzg2IiBkPSJNMTIgNGE0IDQgMCAwIDEgNCA0IDQgNCAwIDAgMS00IDQgNCA0IDAgMCAxLTQtNCA0IDQgMCAwIDEgNC00bTAgMTBjNC40Mi4wIDggMS43OSA4IDR2Mkg0di0yYzAtMi4yMSAzLjU4LTQgOC00eiIvPjwvc3ZnPg==)}.node-main-login>.main .cbi-input-password{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjNjI3Mzg2IiBkPSJNMTIgMTdhMiAyIDAgMCAwIDItMiAyIDIgMCAwIDAtMi0yIDIgMiAwIDAgMC0yIDIgMiAyIDAgMCAwIDIgMm02LTlhMiAyIDAgMCAxIDIgMnYxMGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMlYxMGEyIDIgMCAwIDEgMi0yaDFWNmE1IDUgMCAwIDEgNS01IDUgNSAwIDAgMSA1IDV2MmgxbS02LTVhMyAzIDAgMCAwLTMgM3YyaDZWNmEzIDMgMCAwIDAtMy0zeiIvPjwvc3ZnPg==)}.node-main-login footer{bottom:0;position:absolute;width:100%}.navbar{overflow:hidden;position:fixed;bottom:0;width:100%;border-top:var(--navBorder);text-align:center;height:calc(50px + constant(safe-area-inset-bottom));height:calc(50px + env(safe-area-inset-bottom));background-color:var(--navbgColor);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.navbar a{float:left;text-align:center;padding:8px 0;width:20%;text-decoration:none;max-width:100px}.cbi-map{margin-top:10px}#cbi-shadowsocksr .cbi-map-descr{display:none}.navbar a img{width:28px}@keyframes anim-rotate{0%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}.main-left{float:left;width:18rem;background-color:var(--mainleftbgColor);overflow-x:auto;height:calc(100% - 3.5rem);position:fixed;padding-top:15px;box-shadow:0 0 4px transparent;transition:visibility 100ms,width 100ms}.main-right{width:85%;width:calc(100% - 18rem);float:right;height:100%;border-left:var(--sectionBorder)}.main-right>#maincontent{}.pull-right{position:absolute;top:-2px;right:30px;cursor:pointer}.pull-left{float:left}header>.container{margin:0;padding:0}header>.container>.brand{font-size:25px;font-family:genjyuugothic-medium;line-height:60px;color:var(--logo_color);cursor:default;display:block;width:18rem;height:60px;text-align:center;float:left;font-weight:900;letter-spacing:1px;padding:0 4.5rem;transition:.1s ease-in-out;position:absolute}header>.container>a[class=brand]:after{content:"";font-size:14px;font-family:Tahoma;position:absolute;top:-10px;font-weight:400!important}header>.container>.brand-hostname{font-size:14px;line-height:60px;color:#555;cursor:default;display:block;width:18rem;padding-right:10px;height:60px;text-align:left;float:left;margin-top:7px;font-weight:300;margin-left:-15px}.warning{background-color:#ff7d60!important;color:#fff}.errorbox,.alert-message{margin:0 0 10px;padding:20px;line-height:1.5;font-family:inherit;min-width:inherit;overflow:auto;border-radius:10px;color:var(--alertColor);background-color:var(--alertBackground)}.errorbox{color:#fff;background-color:#ff6767;border-radius:10px}.error{color:red}p#shadowsocksr_status{padding:3px}#maincontent>.container>div:nth-child(1).alert-message.warning>a{font:inherit;overflow:visible;text-transform:none;display:inline-block;margin-bottom:0;font-weight:400;text-align:center;white-space:nowrap;vertical-align:middle;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;min-width:6rem;padding:.5rem 1rem;font-size:14px;line-height:1.42857143;color:#fff;background-color:#5bc0de;border-color:#46b8da;margin-top:2rem;text-decoration:inherit}.main>.main-left>.nav{overflow-y:visible!important;font-size:1rem;width:90%;margin:auto;margin-bottom:90px}.main>.main-left>.nav>li a{color:var(--activeColor);display:block;border-radius:6px;cursor:pointer;font-weight:700;font-size:1.1rem;transition:all .1s}.main>.main-left>.nav>li{cursor:pointer;padding-top:6px}.main>.main-left>.nav>.slide{padding:0;padding-top:8px}.main>.main-left>.nav>.slide>a:before{display:inline-block;left:-10px;top:1px;position:relative;font-family:design!important;font-weight:700!important;text-transform:none!important;speak:none;font-size:1.2rem!important;-webkit-font-smoothing:antialiased}.main>.main-left>.nav>.slide>.menu::after{right:.5rem;top:.8rem;font-family:design!important;font-style:normal!important;font-variant:normal!important;content:"\eb03";float:right;padding-right:5px;line-height:1.6;-moz-osx-font-smoothing:grayscale;transition:all .1s ease;text-rendering:auto;-webkit-font-smoothing:antialiased}.main .main-left .nav li.slide .menu.active::after{transform:rotate(90deg)}.main>.main-left>.nav>.slide>a[data-title=Status]:before{content:"\e6b8"}.main>.main-left>.nav>.slide>a[data-title=System]:before{content:"\e645"}.main>.main-left>.nav>.slide>a[data-title=Modem]:before{content:"\e67e"}.main>.main-left>.nav>.slide>a[data-title=Services]:before{content:"\e6cb"}.main>.main-left>.nav>.slide>a[data-title=Docker]:before{content:"\44"}.main>.main-left>.nav>.slide>a[data-title=NAS]:before{content:"\eb04"}.main>.main-left>.nav>.slide>a[data-title=VPN]:before{content:"\56"}.main>.main-left>.nav>.slide>a[data-title=Network]:before{content:"\72"}.main>.main-left>.nav>.slide>a[data-title="Bandwidth Monitor"]:before{content:"\e764"}.main .main-left .nav li.slide .menu[data-title=Statistics]:before{content:"\e604"}.main .main-left .nav li.slide .menu[data-title=Control]:before{content:"\e67a"}.main .main-left .nav li.slide .menu[data-title=Asterisk]:before{content:"\e7dd"}.main>.main-left>.nav>.slide>a[data-title=QuickStart]:before,.main>.main-left>.nav>li>a[data-title="Inital Setup"]:before,.main>.main-left>.nav>li>a[data-title=NetworkGuide]:before,.main>.main-left>.nav>li>a[href="/cgi-bin/luci//admin/wizard"]:before{content:"\e719"}.main>.main-left>.nav>li>a[data-title=iStore]:before{content:"\e676"}.main>.main-left>.nav>li>a[data-title=Logout]{padding:.675rem 0 .675rem 2.5rem}.main>.main-left>.nav>li>a[data-title=Logout]:before{content:"\e641"}.main>.main-left>.nav>li>a[data-title=Reboot]{padding:6px 25px}.main>.main-left>.nav>li>a[data-title=Reboot]:before{content:"\e004"}.main>.main-left>.nav>.slide>ul{display:none;list-style:dotted}.main>.main-left>.nav>.slide>.menu{display:block;padding:.675rem 0 .675rem 2.5rem;text-decoration:none;cursor:pointer}.main>.main-left>.nav>.slide>.menu2{display:block;padding:.675rem 0 .675rem 2.5rem;text-decoration:none;cursor:pointer}.main>.main-left>.nav>li:hover,.main>.main-left>.nav>.slide>.menu:hover{background:var(--activeColor);color:#fff}.main>.main-left>.nav>.slide>.menu2:hover{background:var(--activeColor);color:#fff}.main>.main-left>.nav>.slide:hover{background:0 0}.slide-menu{overflow:hidden}.main>.main-left>.nav>.slide>.slide-menu>li{margin-top:8px;border-radius:6px}.main>.main-left>.nav>.slide>.slide-menu>.active{background-color:var(--activeColor)}.main>.main-left>.nav>.slide>.slide-menu>li>a{position:relative;display:block;color:var(--textColor);vertical-align:middle;background:0 0!important;border:none!important;text-transform:capitalize;font-size:1rem;margin:.1rem .5rem;padding:.675rem 0 .675rem 3.2rem}.main .main-left .nav li.slide .slide-menu .active a{color:#000}.main>.main-left>.nav>.slide>.slide-menu>li>a:hover{color:#fff}.main>.main-left>.nav>.slide>.slide-menu>.active>a{color:#fff}.main>.main-left>.nav>.slide>.slide-menu>li:hover{background:var(--activeColor);color:#fff!important;transition:all .1s}.main>.main-left>.nav>.slide>.slide-menu>.active:hover{background-color:var(--activeColor);cursor:pointer}.cbi-tab-descr{padding:10px}li{list-style-type:none}#maincontent>.container{margin:30px 30px 50px}h1{color:var(--activeColor);font-size:20px;padding-bottom:10px;border-bottom:1px solid #eee}h2{color:var(--activeColor);padding:0 12px 6px;text-transform:capitalize}h3{font-size:1.2rem;color:var(--activeColor);font-weight:700;padding:0 12px 10px}h4{}label{display:inline-block;vertical-align:middle}fieldset{padding:10px;border:1px;font-weight:400;font-style:normal;line-height:1;font-family:inherit;text-align:left;min-width:inherit;overflow-x:auto;overflow-y:hidden;background-color:var(--sectionbgColor);-webkit-overflow-scrolling:touch}fieldset>legend{display:none!important}fieldset>fieldset{padding:0}.panel-title{width:100%;display:block;padding:10px;font-weight:700;font-size:1rem}table{border-spacing:0;border-collapse:collapse;width:100%;border:0 solid #eee!important;margin:0!important}strong{font-weight:700;padding:2px}#lb_load01_cur,#lb_load01_peak,#lb_load05_cur,#lb_load15_cur{text-align:right!important}#lb_load01_peak{text-align:left!important}#lb_load01_cur{}table>tbody>tr>td,table>tbody>tr>th,table>tfoot>tr>td,table>tfoot>tr>th,table>thead>tr>td,table>thead>tr>th{padding:12px;white-space:nowrap;line-height:1.5;vertical-align:middle!important}.node-services-appfilter table>tbody>tr>th,.node-services-appfilter table>tbody>tr>td,.node-nlbw-usage table>tbody>tr>th,.node-nlbw-usage table>tbody>tr>td{text-align:center}table>tbody>tr{border-bottom:var(--cbilineColor)!important}table>tbody>tr:last-child{border-bottom:none!important}.cbi-section-table-cell{text-align:center}.cbi-section-table-row{text-align:center}.cbi-section-remove{margin-bottom:2px}.cbi-section-remove>input{background-color:#c06}fieldset>table>tbody>tr:nth-of-type(odd){background-color:var(--sectionbgColor2)}#lease6_status_table>tbody>.cbi-section-table-row.cbi-rowstyle-1 div,#lease6_status_table>tbody>.cbi-section-table-row.cbi-rowstyle-2 div{min-width:100%}.node-status-overview>.main fieldset:nth-child(6) td:nth-child(2),.node-status-overview table[id=wifi_status_table]>tbody>tr>td{white-space:normal}#swaptotal>div,#swapfree>div,#swapcache>div,#memfree>div,#membuff>div,#conns>div,#memcache>div,#memtotal>div{width:100%!important;border-color:var(--progressbarColor)!important;background-color:var(--progressbarColor)!important;border-radius:3px}#swaptotal>div>div,#swapfree>div>div,#swapcache>div>div,#memfree>div>div,#membuff>div>div,#conns>div>div,#memcache>div>div,#memtotal>div>div{background-color:var(--progressbar)!important;color:var(--progressbartxtColor)!important;border-radius:3px}#swaptotal div div,#swapfree div div,#swapcache div div,#memfree div div,#membuff div div,#conns div div,#memcache div div,#memtotal div div{align-items:center;align-content:center;justify-content:center;display:flex}#swaptotal div div small,#swapfree div div small,#swapcache div div small,#memfree div div small,#membuff div div small,#conns div div small,#memcache div div small,#memtotal div div small{font-size:.75rem!important;line-height:130%;color:var(--progressbartxtColor)!important}.cbi-value-field{width:65%}.node-system-admin .cbi-value-field li div{padding:0!important}.node-system-admin em{padding:0!important}.node-nlbw-display hr{display:none}.node-nlbw-display p{line-height:1.5;padding:0 10px 5px}#cbi-network .cbi-value-field ul,#cbi-wireless .cbi-value-field ul,#cbi-firewall .cbi-value-field ul{overflow-x:auto;white-space:nowrap}#cbi-network .cbi-value-field ul input[type=text],#cbi-wireless .cbi-value-field ul input[type=text],#cbi-firewall .cbi-value-field ul input[type=text]{max-width:10rem;width:100%!important}div [id*=cbi-network-] [id*=-__status] table,div [id*=cbi-wireless] [id*=-__status] table{width:auto}div [id*=cbi-network-] [id*=-__status] table td,div [id*=cbi-wireless] [id*=-__status] table td{width:auto;padding:0!important}div [id*=cbi-network-] [id*=-__status] table td small,div [id*=cbi-wireless] [id*=-__status] table td small{width:auto}.node-network-wifi .cbi-section-table tr .cbi-value-field,.node-network-wireless .cbi-section-table tr .cbi-value-field{width:unset!important;text-align:right}.node-network-wireless #iw-assoclist .cbi-section-table-row td[colspan="6"],.node-network-wireless .cbi-section-table .cbi-section-table-row td[colspan="6"],.node-network-wifi .cbi-section-table .cbi-section-table-row td[colspan="8"]{text-align:center!important}.node-network-wireless #iw-assoclist .cbi-section-table-row td div{max-width:unset!important}.node-network-wifi table,td,th{border-top:unset!important}.node-network-wifi .cbi-section-table td[colspan="2"]{padding-left:unset!important}.node-status-routes .cbi-section-node{max-height:500px;overflow-y:auto;overflow-x:auto}table table{border:none}.cbi-value-field table{border:none}.cbi-value-field label{padding:0}td>table>tbody>tr>td{border:none}.cbi-value-field>table>tbody>tr>td{border:none}#container\.nlbw\.traffic th,#container\.nlbw\.traffic td,#container\.nlbw\.layer7 th,#container\.nlbw\.layer7 td,#container\.nlbw\.ipv6 th,#container\.nlbw\.ipv6 td,#container\.nlbw\.export th,#container\.nlbw\.export td{padding:12px!important;border-top:none;border:unset;text-align:center}#container\.nlbw\.traffic tr td:nth-child(4),#container\.nlbw\.layer7 tr td:nth-child(3),#container\.nlbw\.ipv6 tr td:nth-child(4),#container\.nlbw\.export tr td:nth-child(4),#container\.nlbw\.traffic tr td:nth-child(6),#container\.nlbw\.layer7 tr td:nth-child(5),#container\.nlbw\.ipv6 tr td:nth-child(6),#container\.nlbw\.export tr td:nth-child(6){text-align:right!important}#container\.nlbw\.traffic tr td:nth-child(5),#container\.nlbw\.layer7 tr td:nth-child(4),#container\.nlbw\.ipv6 tr td:nth-child(5),#container\.nlbw\.export tr td:nth-child(5),#container\.nlbw\.traffic tr td:nth-child(7),#container\.nlbw\.layer7 tr td:nth-child(6),#container\.nlbw\.ipv6 tr td:nth-child(7),#container\.nlbw\.export tr td:nth-child(7){text-align:left!important}td#__status-ifc-signal{width:60px!important}.cbi-button{-webkit-appearance:none;text-transform:uppercase;color:#fff;background-color:#337ab7;transition:all .1s ease-in-out;display:inline-block;border:none;cursor:pointer;-ms-touch-action:manipulation;touch-action:manipulation;background-image:none;text-align:center;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:auto!important;min-width:80px;padding:0 8px;border-radius:var(--commonRadius0);height:35px;line-height:35px}.cbi-button:hover,.cbi-button:focus,.cbi-button:active{color:#fff;outline:0;text-decoration:none;background-color:#6a65d6}.cbi-button:hover,.cbi-button:focus{box-shadow:0 1px 1px rgba(0,0,0,.05)}.cbi-button:active{box-shadow:0 1px 1px rgba(0,0,0,.05)}.cbi-button:disabled{cursor:not-allowed;pointer-events:none;opacity:.6;box-shadow:none}form.inline+form.inline,.cbi-button+.cbi-button{}.cbi-button-reset,.cbi-input-remove{color:#fff!important;background-color:#617486!important}.cbi-button-reset:hover,.cbi-input-remove:hover,.cbi-button-remove:hover{color:#fff!important;background-color:#536473!important}.cbi-button-link,.cbi-input-find,.cbi-input-save,.cbi-button-add,.cbi-button-save,.cbi-button-find,.cbi-input-reload,.cbi-button-reload{color:var(--bttextColor);background-color:#337ab7!important;border-color:#337ab7!important}.cbi-button-link:hover,.cbi-input-find:hover,.cbi-input-save:hover,.cbi-button-add:hover,.cbi-button-save:hover,.cbi-button-find:hover,.cbi-input-reload:hover,.cbi-button-reload:hover{color:#fff!important;background-color:#6a82ae!important;border-color:#6a82ae!important}.cbi-input-apply,.cbi-button-apply,.cbi-button-edit{color:#fff!important;background-color:var(--activeColor)}.cbi-input-reset,.cbi-button-remove{color:#fff!important;background:#617486}.a-to-btn{text-decoration:none}.tabs{margin:15px 0;overflow-x:auto}.cbi-tabmenu>li,.tabs>li{display:table-cell}.cbi-tabmenu>li{border-radius:var(--tabmenuRadius)}.tabs>li>a{text-decoration:none;padding:0 6px;float:left;display:block;white-space:nowrap;height:2.5rem;line-height:2.5rem;font-size:.92rem}.cbi-tabmenu>li>a{text-decoration:none;float:left;display:block;white-space:nowrap;height:2.5rem;line-height:2.5rem;font-size:.92rem;margin:0 10px}.tabs>li[class~=active],.tabs>li:hover{cursor:pointer}.tabs>li[class~=active]>a{color:var(--activeColor)!important;padding-bottom:8px;border-bottom:var(--activeColor) 2px solid}.tabs>li:hover{}.cbi-tabmenu{border-top:var(--sectiontabBorder);border-left:var(--tabmenuBorderLR);border-right:var(--tabmenuBorderLR);border-bottom:var(--tabmenuBottom);background-color:var(--tabmenubgColor);width:100%;overflow-x:auto;margin-top:5px;margin-bottom:10px}.cbi-tabmenu>li:hover{background-color:none}.cbi-tabmenu>li[class~=cbi-tab]{background-color:none}.cbi-tabmenu>li[class~=cbi-tab] a{color:var(--activeColor)!important;border-bottom:2px solid var(--activeColor)!important}.cbi-section-node-tabbed{margin-top:0;border-bottom:var(--sectiontabBorder);border-left:var(--sectiontabBorder);border-right:var(--sectiontabBorder);border-radius:0 0}.cbi-tabcontainer{clear:both}.cbi-tabcontainer>.cbi-value:nth-of-type(2n){background-color:var(--sectionbgColor2)}.cbi-section-node>.cbi-value:nth-of-type(2n){background-color:var(--sectionbgColor2)}div>.cbi-value:nth-of-type(2n){background-color:var(--sectionbgColor2)}.cbi-value-field,.cbi-value-description{display:table-cell}.cbi-value-field{}.cbi-value-helpicon>img{display:none}.cbi-value-helpicon:before{content:"\f059"}.cbi-value-description{opacity:.6;padding-left:4px}.cbi-value-title{word-wrap:break-word;display:table-cell;width:35%;float:left;padding:13px 10px 5px 3px}.cbi-value{display:flex;width:100%;align-items:center;align-content:center;justify-content:flex-start;min-height:40px;padding:8px 10px;flex-flow:row wrap;border-bottom:var(--cbilineColor)}.cbi-value:last-child{border-bottom:none}.cbi-value strong{font-weight:400}.cbi-section-table-descr>.cbi-section-table-cell,.cbi-section-table-titles>.cbi-section-table-cell{border:none}.cbi-rowstyle-2{background-color:var(--sectionbgColor2)}.cbi-rowstyle-2 .cbi-button-up,.cbi-rowstyle-2 .cbi-button-down{}.cbi-section-table .cbi-section-table-titles .cbi-section-table-cell{width:auto!important}.cbi-section-table tr .cbi-value-field{text-align:center;width:20%!important;padding:10px!important}.cbi-section-table tr .cbi-value-field input{width:auto}.cbi-section-table tr .cbi-value-field .ifacebox{margin:auto;width:fit-content;min-width:60px}.cbi-section-descr{padding:3px 10px}.cbi-map-descr{padding:5px 5px 5px 12px}.cbi-map-descr h3{font-size:.92rem;font-weight:400;color:#666}#cbi-vsftpd .cbi-map-descr{color:var(--activeColor);padding:0 12px 0;font-size:1.2rem;font-weight:700}.hidden{display:none}.left{text-align:left!important}.right{text-align:right!important}.right .cbi-button{height:20px;line-height:20px;min-width:60px;margin:0}.inline{display:inline}.cbi-page-actions{text-align:center}.cbi-value input[type=password],.cbi-value input[type=text]{}.ifacebadge{display:inline-flex;padding:5px;background-color:var(--badgebgColor);align-content:center;align-items:center;border-radius:var(--commonRadius1);border:var(--badgeBorder);color:#666}#content_syslog{padding:5px;margin-top:10px;border-radius:10px;background-color:var(--sectionbgColor);box-shadow:3px 3px 3px transparent}.ifacebadge>img{float:right;margin-left:.3rem}img.cbi-image-button{vertical-align:middle}fieldset.cbi-section{border:var(--sectionBorder);margin-bottom:20px;border-radius:10px;margin-top:5px}.cbi-input-textarea,textarea{color:var(--inputtextColor);padding:10px;line-height:normal;border:var(--sectionBorder);background-color:var(--inputbgColor);transition:color 150ms ease,border-color 150ms ease,opacity 150ms ease;-webkit-transition:color 150ms ease,border-color 150ms ease,opacity 150ms ease;outline-style:none;vertical-align:baseline;border-radius:10px;font-family:Menlo,Mono;font-size:.9rem;white-space:pre;margin-bottom:5px}#syslog{width:100%;min-height:15rem;padding:10px;margin-bottom:20px;border-radius:0;background-color:var(--sectionbgColor);border:none}#wan4_i,#wan6_i{width:50px!important}.uci-change-list{font-family:monospace}.uci-change-list *:first-child{border-top-left-radius:5px;border-top-right-radius:5px}.uci-change-list *:nth-last-child(2){border-bottom-left-radius:5px;border-bottom-right-radius:5px}.uci-change-list ins,.uci-change-legend-label ins{text-decoration:none;border:1px solid #0f0;background-color:#cfc;display:block;padding:2px;color:#000;overflow-x:auto}.uci-change-legend .uci-change-legend-label ins{overflow-x:unset;border-radius:var(--commonRadius1)}.uci-change-list del,.uci-change-legend-label del{text-decoration:none;border:1px solid red;background-color:#fcc;display:block;font-style:normal;padding:2px;color:#000;overflow-x:auto}.uci-change-legend .uci-change-legend-label del{overflow-x:unset;border-radius:var(--commonRadius1)}.uci-change-list var,.uci-change-legend-label var{text-decoration:none;border:1px solid #ccc;background-color:#eee;display:block;font-style:normal;padding:2px;color:#000;overflow-x:auto}.uci-change-legend .uci-change-legend-label var{overflow-x:unset;border-radius:var(--commonRadius1)}.uci-change-list var ins,.uci-change-list var del{border:none;white-space:pre;font-style:normal;padding:0;color:#000;overflow-x:auto}.uci-change-legend{padding:5px}.uci-change-legend-label{width:150px;float:left;display:flex;align-items:center}.uci-change-legend-label>ins,.uci-change-legend-label>del,.uci-change-legend-label>var{float:left;margin-right:4px;width:10px;height:10px;display:block}.uci-change-legend-label var ins,.uci-change-legend-label var del{border:none;height:10px;width:10px}.uci-change-list var,.uci-change-list del,.uci-change-list ins{padding:.5rem}#iwsvg,#iwsvg2,#bwsvg{border:var(--sectionBorder)!important;font-family:-apple-system;background:0 0!important}.ifacebox{border:var(--ifaceboxBorderColor) 1px solid;border-radius:var(--commonRadius1);font-size:.92rem;font-weight:400}.ifacebox-head{color:#fff}.ifacebox-body small{font-size:.8rem!important;padding:5px}.ifacebox-body strong{color:#f7f7f7;font-size:0!important}.cbi-image-button{}.zonebadge>.ifacebadge{padding:3px 5px;margin:5px}.zonebadge>input[type=text]{padding:.16rem 1rem;min-width:10rem;margin-top:.3rem}.cbi-value-field .cbi-input-checkbox,.cbi-value-field .cbi-input-radio{vertical-align:middle}.cbi-section-table-row>.cbi-value-field .cbi-input-select{min-width:7rem}.cbi-section-create{padding:0 10px}.cbi-section-create>.cbi-button-add{margin:10px 0}div.cbi-value var,td.cbi-value-field var{font-style:italic;color:#0069d6}small{font-size:small;font-weight:400!important;white-space:normal}.cbi-button-up,.cbi-button-down{display:inline-block;min-width:0;font-size:.9rem}.cbi-optionals{padding:1rem 1rem 0;border-top:1px solid #ccc}#diag-rc-output>pre{display:block;padding:10px;line-height:1.5rem;-moz-border-radius:3px;white-space:pre-wrap;word-wrap:break-word;color:#76838f}input[name=ping],input[name=traceroute],input[name=nslookup]{width:80%}table.cbi-section-table select{width:auto!important}header>.container>.pull-right>*{}#xhr_poll_status>.label.success{padding:.7rem 0;border-radius:20px}#xhr_poll_status_off{padding:.7rem 0;border-radius:20px}.label{padding:0 3px;white-space:nowrap;border-radius:3px;position:absolute;right:5px;top:15px;line-height:150%}.notice{color:var(--activeColor);font-size:.8rem;padding-right:.5rem;border-radius:10px;z-index:10;font-size:1.8rem;font-family:design}#refresh_on,#refresh_off{font-size:1.5rem;font-family:design}#refresh_on{color:var(--activeColor)}#refresh_off{color:var(--progressbarColor)}.darkMask{width:100%;height:100%;position:fixed;background-color:rgba(0,0,0,.56);content:"";z-index:99;display:none}.node-services-shadowsocksr .cbi-input-textarea,.node-nlbw-config .cbi-input-textarea{}.node-services-shadowsocksr #cbi-logview .cbi-section{padding:0}.node-network-diagnostics .cbi-section{border-radius:10px}.node-status-processes>.main table tr td:nth-child(3){white-space:normal}.cbi-map fieldset h3{}.cbi-map fieldset ul li{margin-right:0!important}.node-system-reboot>.main>.main-right p,.node-system-reboot>.main>.main-right h3{margin-left:12px}.node-system-reboot #maincontent{}.node-services-samba>.main .cbi-tabcontainer:nth-child(3) .cbi-value-title{margin-bottom:1rem}.node-services-samba>.main .cbi-tabcontainer:nth-child(3) .cbi-value-field{display:list-item}.node-services-samba>.main .cbi-tabcontainer:nth-child(3) .cbi-value-description{padding-top:1rem;line-height:150%}.node-system-packages>.main table tr td:nth-child(1){width:auto!important}.node-system-packages .cbi-section-node .cbi-value-last{}.node-system-packages .cbi-section-node .cbi-value-last>div{border:none!important;border-radius:3px}.node-system-packages .cbi-section-node .cbi-value-last>div>div{border:none!important;border-radius:3px}.node-system-packages .cbi-section-node .cbi-value-last:nth-last-child(1){padding:auto}.node-system-packages>.main table tr td:nth-last-child(1){white-space:normal;font-size:small;color:#76838f}.node-system-packages>.main .cbi-value>pre{padding:10px;overflow:auto;border-radius:10px}.node-system-packages #cbi-distfeedconf .cbi-section,.node-system-packages #cbi-customfeedconf .cbi-section{border-radius:10px}.node-system-packages .cbi-value-field{width:58%}#container\.nlbw\.traffic,#container\.nlbw\.layer7,#container\.nlbw\.ipv6,#container\.nlbw\.export{margin-top:0;margin-top:0;padding:10px;text-align:center;border-bottom:var(--sectionBorder);border-left:var(--sectionBorder);border-right:var(--sectionBorder);background-color:var(--sectionbgColor);border-radius:10px}#container\.nlbw\.export ul li{padding:5px;width:150px;margin:10px;border-radius:var(--commonRadius1);border:#ccc 1px solid}.cbi-tabmenu+.cbi-section ul{text-align:left}.node-network-firewall>.main .cbi-section-table-row>.cbi-value-field .cbi-input-select{min-width:4rem}.node-status-iptables>.main div>.cbi-map>form{position:static!important;margin:10px 0 20px;padding:12px;border:0;font-weight:400;font-style:normal;line-height:1;font-family:inherit;min-width:inherit;overflow-x:auto;overflow-y:hidden;box-shadow:3px 3px 3px transparent;border-radius:10px;background-color:var(--bgwhite);-webkit-overflow-scrolling:touch}.node-system-flashops fieldset fieldset{border:none}.node-system-flashops br{display:none}.node-system-flashops .cbi-section{}.node-system-flashops .cbi-section-descr{padding:12px;line-height:1.5;border-radius:6px}.node-status-iptables .cbi-tabmenu,.node-system-packages .cbi-tabmenu,.node-system-flashops .cbi-tabmenu{}#cbi-firewall-redirect .cbi-section-table-titles .cbi-section-table-cell{text-align:left}#cbi-firewall-redirect table *,#cbi-network-switch_vlan table *,#cbi-firewall-zone table *{font-size:small}#cbi-firewall-redirect table input[type=text],#cbi-network-switch_vlan table input[type=text],#cbi-firewall-zone table input[type=text]{width:5rem}#cbi-firewall-redirect table select,#cbi-network-switch_vlan table select,#cbi-firewall-zone table select{min-width:3.5rem}.node-status-realtime table>tbody>tr>td{text-align:left!important;padding:10px 3px}.node-status-realtime table[id=connections]>tbody>tr>td{padding:10px 3px;text-align:center!important}.node-status-realtime table{table-layout:auto!important}.node-status-realtime fieldset[id=cbi-table-table]{background-color:unset!important}.node-status-realtime fieldset[id=cbi-table-table]>table>tbody>tr:nth-of-type(odd),.node-status-realtime fieldset[id=cbi-table-table] table[id=connections] tr.cbi-section-table-row.cbi-rowstyle-2{background-color:unset}.node-services-appfilter .cbi-section.cbi-tblsection,.node-nas-fileassistant #list-content,.node-status-realtime fieldset[id=cbi-table-table] .cbi-section-node{overflow:auto}select#cbi\.combobox\.cbid\.shadowsocksr\.cfg013fd6\.tunnel_forward{overflow:hidden}body.lang_pl.node-main-login .cbi-value-title{width:12rem}#detail-bubble{width:unset!important}#detail-bubble.in{color:#000;padding-bottom:calc(60px + env(safe-area-inset-bottom));left:19rem!important;width:calc(100vw - 21.25rem)!important}#detail-bubble .head{display:block;overflow:auto}#detail-bubble #bubble-table{display:inline-table;overflow:auto}@media screen and (max-width:1280px){header{}header>.container{}.main{height:calc(100% - 3.5rem)}.main-left{width:calc(0% + 18rem);top:50px}.main-right{width:calc(100% - 18rem)}table{font-size:.9rem!important;width:100%!important}.main>.main-left>.nav>li,.main>.main-left>.nav>li a,.main>.main-left>.nav>.slide>.menu{font-size:1.1rem}.main>.main-left>.nav>.slide>.slide-menu>li>a{font-size:1rem;text-transform:capitalize}img[src*="/luci-static/resources/cbi/add.gif"]{right:55px;display:block;position:absolute;margin-top:-34px}img[src*="/luci-static/resources/cbi/remove.gif"]{right:55px;display:block;position:absolute;margin-top:-34px}img[src*="/luci-static/resources/cbi/reload.gif"]{right:55px;display:block;position:absolute;margin-top:-34px}#detail-bubble{width:unset!important}#detail-bubble.in{color:#000;padding-bottom:calc(60px + env(safe-area-inset-bottom));left:19rem!important;width:calc(100vw - 21.25rem)!important}#detail-bubble .head{display:block;overflow:auto}#detail-bubble #bubble-table{display:inline-table;overflow:auto}.node-nlbw-usage table{display:block;overflow:auto}#container\.nlbw\.traffic table,#container\.nlbw\.layer7 table,#container\.nlbw\.ipv6 table,#container\.nlbw\.export table{display:block;overflow:auto}}@media screen and (max-width:992px){.main-left{width:0;position:fixed;z-index:100}.main-right{width:100%}.showSide{margin:0;padding:0;display:inline-block;position:absolute;width:18.75rem;height:2.8125rem;padding:1.15rem 2rem;z-index:100}.showSide:before{content:"\e20e";font-size:1.7rem}#maincontent>.container{margin:20px}.node-main-login .showSide{display:none!important}.cbi-value-title{width:35%}.node-network-diagnostics>.main .cbi-map fieldset>div *{width:100%!important}.node-network-diagnostics>.main .cbi-map fieldset>div input[type=text]{}.node-network-diagnostics>.main .cbi-map fieldset>div:nth-child(4) input[type=text]{margin:0!important}.node-network-diagnostics>.main .cbi-map fieldset>div select,.node-network-diagnostics>.main .cbi-map fieldset>div input[type=button]{margin:1rem 0 0}.node-network-diagnostics>.main .cbi-map fieldset>div{width:100%!important}.node-main-login>.main .cbi-value-title{text-align:left}img[src*="/luci-static/resources/cbi/add.gif"]{right:45px;display:block;position:absolute;margin-top:-34px}img[src*="/luci-static/resources/cbi/remove.gif"]{right:45px;display:block;position:absolute;margin-top:-34px}img[src*="/luci-static/resources/cbi/reload.gif"]{right:45px;display:block;position:absolute;margin-top:-34px}#detail-bubble{left:unset!important;width:unset!important}#detail-bubble.in{color:#000;padding-bottom:calc(60px + env(safe-area-inset-bottom));left:unset!important;width:calc(100vw)!important}#detail-bubble .head{display:block;overflow:auto}#detail-bubble #bubble-table{display:inline-table;overflow:auto}header{box-shadow:0 2px 4px rgba(0,0,0,.08)}}@media screen and (max-width:700px){#cbi-vssr-servers .cbi-button-add{position:static!important;width:auto!important;height:2rem!important;line-height:2rem!important;color:#fff;display:block;padding:0!important;font-size:.92rem;border-radius:10px!important;box-shadow:none;background-image:none}#cbi-vssr-servers .cbi-section-table-row{margin:10px 0!important}#cbi-vssr-servers .p-in5{padding-bottom:10px!important;margin:0!important}#cbi-vssr-servers .cbi-page-actions{padding-bottom:10px!important}#maincontent>.container{margin:20px}#detail-bubble{left:unset!important;width:unset!important}#detail-bubble.in{color:#000;padding-bottom:calc(60px + env(safe-area-inset-bottom));left:unset!important;width:calc(100vw)!important}#detail-bubble .head{display:block;overflow:auto}#detail-bubble #bubble-table{display:inline-table;overflow:auto}}@media screen and (max-width:470px){#detail-bubble{left:unset!important;width:unset!important}#detail-bubble.in{color:#000;padding-bottom:calc(60px + env(safe-area-inset-bottom));left:unset!important;width:calc(100vw)!important}#detail-bubble .head{display:block;overflow:auto}#detail-bubble #bubble-table{display:block;overflow:auto}.main-right>#maincontent{overflow:auto}div [id*=cbi-network-] [id*=-__status] table td,div [id*=cbi-wireless] [id*=-__status] table td{white-space:normal}.node-system-leds .cbi-section em,.node-network-network #cbi-network .cbi-map .cbi-section-table cbi-section-table-row,.node-network-network #cbi-network .cbi-map .cbi-section-table td{display:block}.node-network-network #cbi-network .cbi-map .cbi-section-table td{width:100%!important;text-align:center!important;white-space:normal}.node-network-network #cbi-network .cbi-map .cbi-button{min-width:60px!important}.node-network-network .cbi-section-table .cbi-section-table-titles .cbi-section-table-cell{flex:1!important}.node-network-network .cbi-section-table .cbi-section-table-titles th:nth-child(2){text-align:center!important}.node-network-network .cbi-section-table .cbi-section-table-titles{display:flex}.node-network-wireless fieldset:nth-child(1) table>tbody>tr>td,.node-network-wireless fieldset:nth-child(2) table>tbody>tr>td{white-space:normal}}@media screen and (max-width:370px){fieldset{}select{width:100%}header{height:55px}h3{padding:0 10px 10px}.showSide{height:45px}#maincontent>.container{margin:20px}.main{top:45px}.main-left{top:45px}.main>.main-left>.nav>.slide>.menu{}.main>.main-left>.nav>.slide>.slide-menu>li>a{}.cbi-value{margin-bottom:20px;display:table;padding:0;border-bottom:none}.cbi-value-title{width:100%;font-weight:700;float:left;padding:0;margin:0;margin-bottom:.25rem}.cbi-section-node{padding:10px!important}.cbi-value-description{width:100%;display:block}.cbi-value>.cbi-value-field{display:block;float:left;width:100%}img[src*="/luci-static/resources/cbi/add.gif"]{right:45px;display:block;position:absolute;margin-top:-34px}img[src*="/luci-static/resources/cbi/remove.gif"]{right:45px;display:block;position:absolute;margin-top:-34px}img[src*="/luci-static/resources/cbi/reload.gif"]{right:45px;display:block;position:absolute;margin-top:-34px}.cbi-section-node>.cbi-value:nth-of-type(2n){background-color:var(--sectionbgColor)}.cbi-tabcontainer>.cbi-value:nth-of-type(2n){background-color:var(--sectionbgColor)}div>.cbi-value:nth-of-type(2n){background-color:var(--sectionbgColor)}.node-main-login>.main .cbi-value{padding:0}.node-main-login>.main form>div:nth-last-child(1){margin-top:2rem}.node-main-login>.main fieldset{margin:0;padding:.5rem}#container\.network\.lan\.physical .cbi-value-title,#cbi-network-1-_ifname .cbi-value-title{width:35%}#cbi-network-1-_ifname .cbi-value-field{width:65%}h2{font-size:1.2rem;text-transform:capitalize}select,input{}input[type=checkbox]{height:1.2rem!important;width:1.2rem!important}#swaptotal div div small,#swapfree div div small,#swapcache div div small,#memfree div div small,#membuff div div small,#conns div div small,#memcache div div small,#memtotal div div small{}#swaptotal div div,#swapfree div div,#swapcache div div,#memfree div div,#membuff div div,#conns div div,#memcache div div,#memtotal div div{}.node-status-iptables>.main div>.cbi-map>form input[type=submit]{margin:0}#cbi-samba-cfg010f89-_tmpl .cbi-value-title{width:15%}#cbi-samba-cfg010f89-_tmpl .cbi-value-field{width:95%}#detail-bubble{left:unset!important;width:unset!important}#detail-bubble.in{color:#000;padding-bottom:calc(60px + env(safe-area-inset-bottom));left:unset!important;width:calc(100vw)!important}#detail-bubble .head{display:block;overflow:auto}#detail-bubble #bubble-table{display:block;overflow:auto}}@media screen and (max-width:315px){.label{position:absolute;right:5px;top:-70px}}#intervalSelect{height:40px!important}.commandbox div{position:unset!important}#cbi-netspeedtest-homebox-{display:unset!important}.node-status-realtime .container{overflow:auto}.node-network-network div[onclick*="document.getElementById('cbid.network."],#cbi-network div[onclick*="document.getElementById('cbid.network."]{background-color:unset!important}form[action="/cgi-bin/luci/admin/network/wireless"] input[class="cbi-button cbi-button-reset"],form[action="/cgi-bin/luci/admin/network/wireless_join"] input[class="cbi-button cbi-input-find"]{height:25px;min-width:80px}.node-services-aliyundrive-webdav #mask-box{background:transparent}.node-services-ddns #cbi-ddns-service input{width:unset}.node-services-ddns .cbi-value input[type=password],.node-services-ddns .cbi-value input[type=text]{width:100%!important}.fb-container .cbi-button{border-radius:var(--commonRadius0);margin:3px 3px 3px 0;height:unset!important}.node-system-commands h3{text-transform:unset}.node-system-commands .commandbox{width:auto;display:inline-block;float:none}.node-system-commands .commandbox p{word-break:keep-all;white-space:nowrap}.node-system-commands div.cbi-map fieldset.cbi-section{align-items:center;text-align:center}.node-system-commands #cbi-luci.cbi-map fieldset.cbi-section{align-items:unset;text-align:unset}.node-network-network .ifacebox strong{color:var(--ifaceboxFontColor);padding:5px}.node-network-firewall .zonebadge strong,.node-network-firewall label strong{color:var(--ifaceboxFontColor)}.node-services-openclash ul li.selected{background-color:var(--liSelectedColor)!important}.node-services-openclash .cbi-button-reset,.node-services-openclash .cbi-input-remove{max-width:unset!important}.node-services-openclash #tab-header ul li.selected,.node-services-openclash #tab-header ul li{color:#000!important;background-color:unset!important}.node-nas-qbittorrent p#qBittorrent_status input{line-height:unset}.node-system-diskman.dialog-format-active #dialog_format .dialog_box{background:var(--alertBackground);border-radius:var(--commonRadius1)}.node-services-watchcat-plus select[id*="cbi.opt.watchcat"]{width:auto}.node-nas-fileassistant .fb-container .cbi-value-owner,.node-nas-fileassistant .fb-container .cbi-value-perm{display:table-cell}.node-services-adguardhome input[onclick*="window.open('http://'+window.location.hostname+':"]{line-height:0}
+/* LuCI JS form tab panes (form.js / ui.tabs): inactive panes carry
+   data-tab-title and are flushed with data-tab-active="true" on selection.
+   Without these rules every pane stays visible, so clicking a tab only moves
+   the underline and the displayed content never changes. */
+[data-tab-title]{height:0;opacity:0;overflow:hidden}
+[data-tab-active="true"]{height:auto;opacity:1;overflow:visible}
+
+
+
+/* ==========================================================================
+ * LuCI 25.12 (ucode / client-side JS views) compatibility layer
+ *
+ * The theme was written for the server-rendered Lua markup of LuCI 23.x.
+ * LuCI 25.12 renders most pages in the browser and emits a different DOM:
+ *   - <div class="cbi-section"> instead of <fieldset class="cbi-section">
+ *   - <ul class="cbi-tabmenu"> tab bars and data-tab-* panes
+ *   - custom .cbi-dropdown / .cbi-dynlist / .cbi-tooltip / .cbi-progressbar
+ *   - .label used for every inline status badge, not only header notices
+ * The rules below restore the original theme look for that markup without
+ * touching the legacy selectors used by remaining Lua/template views.
+ * ========================================================================== */
+
+/* --- form.js tab panes ---------------------------------------------------- */
+[data-tab-title]:not([data-tab-active="true"]) {
+	display: none !important;
+}
+
+[data-tab-title][data-tab-active="true"] {
+	display: block;
+}
+
+/* --- section cards ------------------------------------------------------- */
+div.cbi-section {
+	background-color: var(--sectionbgColor);
+	border: var(--sectionBorder, none);
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px 0 20px;
+	overflow: visible;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Table sections keep their horizontal scroll on narrow screens. */
+div.cbi-section.cbi-tblsection {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+div.cbi-section > h3,
+div.cbi-section > .cbi-title > h3 {
+	padding: 0 0 10px;
+	margin: 0;
+}
+
+div.cbi-section > .cbi-title {
+	padding: 0;
+}
+
+div.cbi-section-node {
+	padding: 0;
+}
+
+div.cbi-section .cbi-section {
+	margin: 10px;
+}
+
+div.cbi-section.cbi-tblsection {
+	padding-bottom: 0;
+}
+
+.cbi-map-tabbed > div.cbi-section {
+	margin-top: 0;
+}
+
+/* --- tables emitted by the JS views -------------------------------------- */
+#maincontent table > tbody > tr:nth-of-type(odd) {
+	background-color: var(--sectionbgColor2);
+}
+
+#maincontent table > thead > tr,
+#maincontent table > tbody > tr.cbi-section-table-titles,
+#maincontent table > tbody > tr.table-titles {
+	background-color: var(--sectionbgColor2);
+	font-weight: 700;
+}
+
+#maincontent table .th,
+#maincontent table .td {
+	vertical-align: middle;
+}
+
+#maincontent .td.cbi-section-actions {
+	text-align: right;
+	white-space: nowrap;
+}
+
+#maincontent .td.cbi-section-actions > div {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 4px;
+}
+
+#maincontent .td.cbi-section-actions .cbi-button {
+	margin: 2px;
+}
+
+#maincontent .td.cbi-section-actions form {
+	display: inline;
+	margin: 0;
+}
+
+#maincontent .cbi-section-table .tr:hover .td {
+	background-color: var(--sectionbgColor2);
+}
+
+/* --- inline status labels ------------------------------------------------ */
+/* The theme positioned every .label absolutely for the header notice. New
+ * LuCI also uses .label for inline badges ("hide", "running", ...), so keep
+ * the header behaviour but restore normal flow inside the content area. */
+#maincontent .label,
+#maincontent > .container > .cbi-map .label {
+	position: static !important;
+	top: auto !important;
+	right: auto !important;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	margin: 0 .25em;
+	padding: 1px 6px;
+	border-radius: 6px;
+	background-color: var(--inputbgColor);
+	color: var(--textColor);
+	font-size: .75rem;
+	font-weight: 400;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+
+#maincontent .label.success {
+	background-color: var(--activeColor);
+	color: #fff;
+}
+
+#maincontent .label.warning,
+#maincontent .label.danger,
+#maincontent .label.error {
+	background-color: #d9534f;
+	color: #fff;
+}
+
+#maincontent .label.important {
+	background-color: #337ab7;
+	color: #fff;
+}
+
+#maincontent .label.notice {
+	background-color: var(--activeColor);
+	color: #fff;
+}
+
+/* --- tooltips ------------------------------------------------------------ */
+.cbi-tooltip-container {
+	position: relative;
+	cursor: help;
+}
+
+.cbi-tooltip {
+	position: absolute;
+	z-index: 1200;
+	left: -10000px;
+	top: 100%;
+	display: block;
+	opacity: 0;
+	pointer-events: none;
+	background: var(--sectionbgColor);
+	color: var(--textColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius1, 5px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+	padding: 6px 8px;
+	white-space: normal;
+	max-width: 70vw;
+	line-height: 1.5;
+	transition: opacity .15s ease-in;
+}
+
+.cbi-tooltip-container:hover > .cbi-tooltip:not(:empty) {
+	left: 0;
+	opacity: 1;
+}
+
+.cbi-tooltip > * {
+	margin: 2px 0;
+}
+
+/* --- progress bars ------------------------------------------------------- */
+.cbi-progressbar {
+	position: relative;
+	height: 10px;
+	min-width: 120px;
+	margin: 1.4em 0 4px;
+	background: var(--progressbarColor);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.cbi-progressbar > div {
+	height: 100%;
+	width: 0;
+	background: var(--progressbar);
+	border-radius: 5px;
+	transition: width .25s ease-in;
+}
+
+.cbi-progressbar::before {
+	content: attr(title);
+	position: absolute;
+	top: -1.35em;
+	left: 0;
+	font-size: .75rem;
+	color: var(--textColor);
+	white-space: nowrap;
+}
+
+/* --- custom select (`.cbi-dropdown`) ------------------------------------- */
+.cbi-dropdown {
+	display: inline-flex !important;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	height: auto;
+	min-width: 0;
+	margin: 0;
+	padding: 0 !important;
+	vertical-align: middle;
+	outline: none;
+}
+
+.cbi-dropdown:not(.btn):not(.cbi-button) {
+	min-width: 210px;
+	max-width: 550px;
+	width: 100%;
+	height: 2.8rem;
+	margin: 3px 3px 3px 0;
+	padding: 0 6px !important;
+	background-color: var(--inputbgColor);
+	color: var(--inputtextColor);
+	border: var(--inputBorder);
+	border-radius: var(--commonRadius0, 8px);
+}
+
+.cbi-dropdown:not(.btn):not(.cbi-button):focus,
+.cbi-dropdown:not(.btn):not(.cbi-button)[open] {
+	border-color: #948fe1;
+	box-shadow: 0 0 6px #948fe1;
+}
+
+.cbi-dropdown > ul {
+	display: flex;
+	flex: 1 1 auto;
+	width: 100%;
+	margin: 0 !important;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+.cbi-dropdown > ul > li {
+	display: none;
+	align-items: center;
+	flex: 1 1 auto;
+	min-height: 2.2rem;
+	padding: 0 .25em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: inherit;
+}
+
+.cbi-dropdown > ul > li[display],
+.cbi-dropdown[empty] > ul > li,
+.cbi-dropdown[optional][open] > ul.dropdown > li[placeholder] {
+	display: flex !important;
+}
+
+.cbi-dropdown > ul.preview {
+	display: none;
+}
+
+.cbi-dropdown > .more,
+.cbi-dropdown > .open {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 .4em;
+	color: var(--textColor);
+}
+
+.cbi-dropdown > .more {
+	display: none;
+}
+
+.cbi-dropdown[multiple][more] > .more {
+	display: flex;
+}
+
+.cbi-dropdown > ul.dropdown {
+	display: none;
+}
+
+.cbi-dropdown[open] > ul.dropdown {
+	display: block;
+	position: absolute;
+	z-index: 1100;
+	left: 0;
+	top: auto;
+	min-width: calc(100% + 2px);
+	width: auto;
+	max-width: 90vw;
+	max-height: 60vh;
+	overflow-y: auto;
+	margin: 0 !important;
+	padding: .25em 0;
+	background: var(--sectionbgColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius0, 8px);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+.cbi-dropdown[open] > ul.dropdown > li {
+	display: flex !important;
+	align-items: center;
+	flex: none;
+	min-height: 2.2rem;
+	padding: .3em .8em;
+	border-bottom: 1px solid var(--cbilineColor);
+	white-space: normal;
+	color: var(--textColor);
+}
+
+.cbi-dropdown[open] > ul.dropdown > li:last-child {
+	border-bottom: none;
+}
+
+.cbi-dropdown[open] > ul.dropdown > li[selected],
+.cbi-dropdown[open] > ul.dropdown > li.focus,
+.cbi-dropdown[open] > ul.dropdown > li:hover {
+	background: var(--activeColor);
+	color: #fff;
+}
+
+.cbi-dropdown[open] > ul.dropdown > li[unselectable] {
+	opacity: .6;
+}
+
+.cbi-dropdown > ul > li .hide-close,
+.cbi-dropdown[open] > ul.dropdown > li .hide-open {
+	display: none;
+}
+
+.cbi-dropdown > ul > li .hide-open,
+.cbi-dropdown[open] > ul.dropdown > li .hide-close {
+	display: initial;
+}
+
+.cbi-dropdown > ul > li > form {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+.cbi-dropdown[multiple][open] > ul.dropdown > li > form {
+	display: flex;
+}
+
+.cbi-dropdown > ul > li > form > input[type="checkbox"] {
+	margin: 0 .4em 0 0;
+}
+
+.cbi-dropdown > ul > li input.create-item-input {
+	width: 100%;
+}
+
+.cbi-dropdown > ul > li img {
+	max-height: 1.6em;
+	width: auto;
+	vertical-align: middle;
+	margin-right: .25em;
+}
+
+.cbi-dropdown[empty] > ul {
+	max-width: 1px;
+}
+
+.cbi-dropdown.btn > ul,
+.cbi-dropdown.cbi-button > ul {
+	margin-left: .5em !important;
+}
+
+.cbi-dropdown.btn > .open,
+.cbi-dropdown.cbi-button > .open {
+	margin-left: .4em;
+	border-left: 1px solid rgba(255, 255, 255, .5);
+}
+
+.td .cbi-dropdown:not(.btn):not(.cbi-button),
+.cbi-section-table .cbi-dropdown:not(.btn):not(.cbi-button) {
+	width: 100%;
+	max-width: none;
+}
+
+/* --- dynamic lists ------------------------------------------------------- */
+.cbi-dynlist {
+	display: inline-flex;
+	flex-direction: column;
+	min-width: 210px;
+	max-width: 550px;
+	width: auto;
+	min-height: 2.8rem;
+}
+
+.cbi-dynlist > .item {
+	position: relative;
+	margin-bottom: 4px;
+	padding: 6px 2em 6px 8px;
+	background: var(--inputbgColor);
+	color: var(--inputtextColor);
+	border: var(--inputBorder);
+	border-radius: var(--commonRadius0, 8px);
+	word-break: break-all;
+	cursor: move;
+}
+
+.cbi-dynlist > .item::after {
+	content: "×";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	padding: 0 8px;
+	color: #c44;
+	font-weight: 700;
+}
+
+.cbi-dynlist > .add-item {
+	display: flex;
+	gap: 4px;
+}
+
+.cbi-dynlist > .add-item > input {
+	flex: 1 1 auto;
+}
+
+/* --- checkbox / radio wrappers ------------------------------------------ */
+#maincontent .cbi-checkbox,
+#maincontent .cbi-radio {
+	display: inline-flex;
+	align-items: center;
+	gap: .35em;
+	min-height: 1.6rem;
+}
+
+#maincontent .cbi-checkbox > input,
+#maincontent .cbi-radio > input {
+	margin: 0;
+}
+
+#maincontent .cbi-checkbox > label,
+#maincontent .cbi-radio > label {
+	margin: 0;
+}
+
+/* --- inline control groups ---------------------------------------------- */
+.control-group {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.control-group > .cbi-button {
+	margin: 0;
+}
+
+/* --- button variants introduced by LuCI 25.12 --------------------------- */
+.cbi-button-positive,
+.cbi-button-fieldadd {
+	color: #fff !important;
+	background-color: var(--activeColor) !important;
+	border-color: var(--activeColor) !important;
+}
+
+.cbi-button-negative {
+	color: #fff !important;
+	background-color: #617486 !important;
+	border-color: #617486 !important;
+}
+
+.cbi-button-neutral {
+	color: #fff !important;
+	background-color: #6c7a89 !important;
+	border-color: #6c7a89 !important;
+}
+
+.cbi-button-action {
+	color: #fff !important;
+	background-color: #337ab7 !important;
+	border-color: #337ab7 !important;
+}
+
+.cbi-button-positive:hover,
+.cbi-button-negative:hover,
+.cbi-button-neutral:hover,
+.cbi-button-action:hover {
+	opacity: .9;
+}
+
+/* --- package manager / list controls ------------------------------------ */
+.controls {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: .5em;
+	margin: 10px 0;
+}
+
+#maincontent .pager {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5em;
+	margin: 10px 0;
+}
+
+#maincontent .pager .text {
+	padding: 0 .75em;
+	color: var(--textColor);
+}
+
+#maincontent .pager .cbi-button[disabled] {
+	opacity: .5;
+}
+
+/* --- tabs emitted by the JS views --------------------------------------- */
+.cbi-tabmenu > li.cbi-tab-disabled > a {
+	color: var(--textColor);
+}
+
+.cbi-tabmenu > li.cbi-tab-disabled:hover {
+	background-color: var(--sectionbgColor2);
+}
+
+.cbi-tabmenu > li.cbi-tab > a {
+	color: var(--activeColor);
+	border-bottom: 2px solid var(--activeColor);
+}
+
+/* --- misc ---------------------------------------------------------------- */
+#maincontent .cbi-value-field > div {
+	max-width: 100%;
+}
+
+#maincontent .cbi-value-description {
+	display: block;
+}
+
+#maincontent .ifacebox .cbi-tooltip-container {
+	display: inline-flex;
+	align-items: center;
+}
+
+#maincontent .ifacebox-body {
+	white-space: normal;
+}
+
+/* --- modal dialogs / overlays ------------------------------------------- */
+#modal_overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 900;
+	overflow: auto;
+	background: rgba(0, 0, 0, .7);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .125s ease-in;
+}
+
+body.modal-overlay-active #modal_overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+body.modal-overlay-active {
+	overflow: hidden;
+	height: 100vh;
+}
+
+#modal_overlay .modal {
+	width: 90%;
+	max-width: 600px;
+	min-width: 270px;
+	min-height: 32px;
+	margin: 5em auto;
+	padding: 1em;
+	background: var(--sectionbgColor);
+	color: var(--textColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius0, 8px);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+}
+
+#modal_overlay .modal.uci-dialog,
+#modal_overlay .modal.cbi-modal {
+	max-width: 900px;
+}
+
+#modal_overlay .modal > * {
+	margin-bottom: .5em;
+	max-width: 100%;
+}
+
+#modal_overlay .modal > .button-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: .5em;
+}
+
+#modal_overlay .modal > .button-row > button:first-of-type {
+	margin-right: auto;
+}
+
+#modal_overlay .modal pre,
+#modal_overlay .modal textarea {
+	width: 100%;
+	white-space: pre-wrap;
+	overflow: auto;
+}
+
+/* --- loading placeholder ------------------------------------------------ */
+#view > div.spinning:first-child {
+	display: block;
+	margin: 15vh auto;
+	text-align: center;
+	color: var(--textColor);
+}
+
+#view > div.spinning:first-child::before {
+	content: "\e603";
+	font-family: icomoon !important;
+	display: inline-block;
+	margin-right: .5rem;
+	animation: anim-rotate 2s infinite linear;
+}
+
+/* --- indicator states used by the JS views ------------------------------ */
+#maincontent .label[data-style="active"] {
+	background-color: var(--activeColor);
+	color: #fff;
+}
+
+#maincontent .label[data-style="inactive"] {
+	background-color: var(--inputbgColor);
+	color: var(--textColor);
+}
+/* Keep dropdown menus inside table sections from being clipped: the section
+ * is a horizontal scroll container, but while a dropdown is open it has to
+ * be able to overflow so ui.js can place the list relative to the viewport. */
+.cbi-section.cbi-tblsection:has(.cbi-dropdown[open]) {
+	overflow: visible;
+}
+/* Keep embedded table sections from forcing the whole document wider than
+ * the viewport on phones.  They are flex items inside .cbi-value and need an
+ * explicit min-width:0 so their own overflow handler can take over. */
+#maincontent .cbi-value,
+#maincontent .cbi-value-field,
+#maincontent .cbi-section,
+#maincontent .cbi-section-node {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+#maincontent .cbi-value-field {
+	min-width: 0;
+}
+
+#maincontent .cbi-value-field > div {
+	max-width: 100%;
+}
+/* Neobird switches .cbi-value to display:table on small screens (<=480px).
+ * A JS table section nested inside such a form row then forces the document
+ * to the table's min-content width.  Keep table sections inside a block
+ * container so their own horizontal scrolling can work. */
+@media screen and (max-width: 480px) {
+	#maincontent .cbi-value:has(.cbi-tblsection) {
+		display: block;
+	}
+
+	#maincontent .cbi-value:has(.cbi-tblsection) > .cbi-value-field {
+		display: block;
+		width: 100%;
+		min-width: 0;
+	}
+}
+/* A few JS views place a wide table directly inside a plain section (routes,
+ * for example).  Give those sections their own horizontal scrollbar. */
+div.cbi-section:has(> table.table) {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+/* Do not clip an open dropdown while the section is scrolled. */
+div.cbi-section:has(.cbi-dropdown[open]) {
+	overflow: visible;
+}
+/* ==========================================================================
+ * Page-level fixes for the 25.12 JS views that emit bare h2/table markup
+ * (processes, software, startup, crontab, ...)
+ * ========================================================================== */
+
+/* The Lua views wrapped these pages in <fieldset class="cbi-section">.
+ * The JS views do not, so give the whole #view a card when it has no
+ * cbi-map/cbi-section of its own. */
+#maincontent #view:not(:has(.cbi-map)):not(:has(.cbi-section)) {
+	background-color: var(--sectionbgColor);
+	border: var(--sectionBorder, none);
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px 0 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+#maincontent #view:not(:has(.cbi-map)):not(:has(.cbi-section)):has(.cbi-dropdown[open]) {
+	overflow: visible;
+}
+
+/* Tables rendered without a <tbody> (processes, startup, mounts, software). */
+#maincontent table > tr > td,
+#maincontent table > tr > th {
+	padding: 12px;
+	line-height: 1.5;
+	vertical-align: middle !important;
+	white-space: nowrap;
+	border-bottom: var(--cbilineColor) !important;
+}
+
+#maincontent table > tr > th {
+	font-weight: 700;
+	background-color: var(--sectionbgColor2);
+}
+
+#maincontent table > tr:last-child > td {
+	border-bottom: none !important;
+}
+
+/* Keep table action buttons on one line.  The 25.12 views put up to five
+ * buttons into a cell and the old wrapping rule made each row 2-3x taller. */
+#maincontent .td.cbi-section-actions,
+#maincontent .th.cbi-section-actions {
+	width: 1% !important;
+	white-space: nowrap;
+	text-align: right;
+}
+
+#maincontent .td.cbi-section-actions > div,
+#maincontent .cbi-section-table-cell.cbi-section-actions > div {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	gap: 4px;
+}
+
+#maincontent .td.cbi-section-actions .cbi-button {
+	margin: 0;
+}
+
+/* Page actions inside the bare-view card */
+#maincontent #view:not(:has(.cbi-map)):not(:has(.cbi-section)) > .cbi-page-actions {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid var(--borderColor);
+}
+
+/* Software page: LuCI injects its own .controls styles; align them with the
+ * theme card and keep the filter row on one line. */
+#maincontent #view > style:first-child + h2,
+#maincontent #view > h2:first-child {
+	margin-top: 0;
+}
+
+/* --- Lua-style apply overlay (no modal dialog) --------------------------- */
+#theme-apply-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2000;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, .45);
+}
+
+#theme-apply-overlay.show {
+	display: flex;
+}
+
+#theme-apply-overlay .theme-apply-box {
+	min-width: 220px;
+	max-width: 80vw;
+	padding: 24px 32px;
+	text-align: center;
+	background: var(--sectionbgColor);
+	color: var(--textColor);
+	border-radius: 10px;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+}
+
+#theme-apply-overlay .theme-apply-box p {
+	margin: 14px 0 0;
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+.theme-apply-spinner {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	border: 3px solid var(--activeColor);
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: theme-apply-spin .8s linear infinite;
+}
+
+@keyframes theme-apply-spin {
+	to { transform: rotate(360deg); }
+}
+/* Process command lines are arbitrarily long; let the command column wrap
+ * instead of stretching the table to several thousand pixels. */
+.node-status-processes #maincontent table > tr > td:nth-child(3) {
+	white-space: normal;
+	word-break: break-all;
+}
+
+.node-status-processes #maincontent table > tr > td:nth-child(3) span {
+	white-space: normal;
+	word-break: break-word;
+}
+/* Software view: the description column must wrap, otherwise the table is
+ * stretched to several thousand pixels by its nowrap cells. */
+.node-system-package-manager #maincontent table {
+	width: 100%;
+}
+
+.node-system-package-manager #maincontent table > tr > td.col-10,
+.node-system-package-manager #maincontent table > tr > td[data-title="描述"] {
+	white-space: normal;
+	word-break: break-word;
+}
+
+.node-system-package-manager #maincontent table > tr > td.col-2:first-child {
+	white-space: normal;
+	word-break: break-all;
+}
+
+.node-system-package-manager #maincontent table > tr > td.version,
+.node-system-package-manager #maincontent table > tr > td.size {
+	white-space: nowrap;
+}
+/* Diagnostics uses three input+button columns in one row; keep each control
+ * inside its table cell instead of overflowing the page. */
+.node-network-diagnostics #maincontent table > tr > td {
+	white-space: normal;
+}
+
+.node-network-diagnostics #maincontent table > tr > td > input[type="text"] {
+	width: calc(100% - 120px) !important;
+	max-width: calc(100% - 120px) !important;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.node-network-diagnostics .diag-action {
+	display: inline-block;
+	vertical-align: middle;
+}
+/* Keep the scheduled-tasks editor at the compact height used by the Lua
+ * theme instead of the 25-row default. */
+.node-system-crontab #maincontent #view textarea {
+	height: 15rem;
+}
+/* ==========================================================================
+ * Compatibility for widgets used by Cloudflared / network interfaces
+ * ========================================================================== */
+
+/* New LuCI uses SVG icons from /luci-static/resources/icons.  The legacy
+ * theme rules only target PNG icons and add a padding trick that collapses
+ * SVG images to zero content width. */
+#maincontent img[src$=".svg"],
+#maincontent img[src*=".svg?"] {
+	background: none !important;
+	padding: 0 !important;
+	width: 16px !important;
+	height: 16px !important;
+	object-fit: contain;
+	vertical-align: middle;
+}
+
+#maincontent .ifacebox-body img[src$=".svg"],
+#maincontent .ifacebox-body img[src*=".svg?"] {
+	width: 20px !important;
+	height: 20px !important;
+}
+
+.node-network-network #maincontent .ifacebox-body > span:not(.cbi-tooltip-container) {
+	font-size: 0;
+	line-height: 0;
+}
+
+.node-network-network #maincontent .ifacebox-body > span:not(.cbi-tooltip-container) > .cbi-tooltip-container {
+	font-size: 1rem;
+	line-height: normal;
+}
+
+/* File picker widget used by Cloudflared and other service pages. */
+.cbi-filebrowser {
+	min-width: 210px;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	background-color: var(--sectionbgColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius0, 8px);
+}
+
+.cbi-filebrowser.open {
+	height: auto;
+	opacity: 1;
+	overflow: visible;
+	transition: opacity .25s ease-in;
+}
+
+.cbi-filebrowser > * {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: .25em .25em 0;
+	padding: 0 0 .25em;
+	border-bottom: 1px solid var(--cbilineColor);
+}
+
+.cbi-filebrowser > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+.cbi-filebrowser > ul > li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 .25em;
+	cursor: pointer;
+}
+
+.cbi-filebrowser > ul > li:hover {
+	background-color: var(--sectionbgColor2);
+}
+
+.cbi-filebrowser > ul > li > div:first-child {
+	flex: 10;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.cbi-filebrowser > ul > li > div:last-child {
+	flex: 3;
+	text-align: right;
+}
+
+.cbi-filebrowser > ul > li > div:last-child > button {
+	margin: 1px 0 1px .25em;
+	padding: .125em .25em;
+}
+
+.cbi-filebrowser .upload {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-bottom: 1px solid var(--cbilineColor);
+	margin: 0 -.125em .25em;
+	padding: 0 0 .125em;
+}
+
+.cbi-filebrowser .upload > * {
+	flex: 1;
+	margin: .125em;
+}
+
+.cbi-filebrowser .upload > .btn {
+	flex-basis: 60px;
+}
+
+.cbi-filebrowser .upload > div {
+	flex: 10;
+	min-width: 150px;
+}
+
+.cbi-filebrowser .upload > div > input {
+	width: 100%;
+}
+
+.open-file-browser {
+	display: inline-flex !important;
+	align-items: center;
+	width: 100%;
+	max-width: 550px;
+	min-height: 2.8rem;
+	padding: 0 10px !important;
+	background-color: var(--inputbgColor) !important;
+	color: var(--inputtextColor) !important;
+	border: var(--inputBorder) !important;
+	border-radius: var(--commonRadius0, 8px) !important;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.open-file-browser img {
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	flex: 0 0 auto;
+}
+
+/* --- overview progress bars --------------------------------------------- */
+/* The Lua theme shows the "used / total" caption inside the bar.  The 25.12
+ * widget only exposes it through the title attribute; paint it centred. */
+.cbi-progressbar {
+	position: relative;
+	height: 15px;
+	min-width: 120px;
+	margin: 0;
+	background: var(--progressbarColor);
+	border: 1px solid var(--borderColor);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.cbi-progressbar > div {
+	height: 100%;
+	width: 0;
+	background: var(--progressbar);
+	border-radius: 0;
+	transition: width .25s ease-in;
+}
+
+.cbi-progressbar::before {
+	content: none !important;
+}
+
+.cbi-progressbar::after {
+	content: attr(title);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 6px;
+	font-size: 11px;
+	line-height: 1;
+	color: #000;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	pointer-events: none;
+}
+
+[data-theme="dark"] .cbi-progressbar::after {
+	color: #fff;
+}
+/* Lua-style full-page apply loader: no dialog card, just the page surface
+ * with a spinner and a short caption near the top. */
+#theme-apply-overlay {
+	align-items: flex-start;
+	justify-content: center;
+	background: var(--bg);
+}
+
+#theme-apply-overlay .theme-apply-box {
+	min-width: 0;
+	max-width: 90vw;
+	margin-top: 2rem;
+	padding: 0;
+	text-align: center;
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
+	color: #888;
+}
+
+#theme-apply-overlay .theme-apply-box p {
+	margin: 12px 0 0;
+	font-size: 1rem;
+	color: #888;
+}
+/* The 25.12 network widget puts a second device icon in a parenthesised
+ * wrapper.  The Lua design shows one icon plus the device name; hide the
+ * wrapper on the interfaces page so the compact ifacebox stays clean. */
+.node-network-network #maincontent .ifacebox-body > span:not(.cbi-tooltip-container) {
+	display: none;
+}
+/* Table inputs are forced to width:auto by the legacy theme, which also
+ * shrank every checkbox/radio to the browser default.  Keep the theme size. */
+.cbi-section-table tr .cbi-value-field input[type="checkbox"],
+.cbi-section-table tr .cbi-value-field input[type="radio"],
+#maincontent .cbi-checkbox > input,
+#maincontent .cbi-radio > input {
+	width: 1.2rem !important;
+	height: 1.2rem !important;
+	flex: 0 0 auto;
+}
+
+#maincontent input[type="checkbox"],
+#maincontent input[type="radio"] {
+	accent-color: var(--activeColor);
+}
+/* Buttons inside the file picker use the bare `.btn` class. */
+.cbi-filebrowser .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 1.8rem;
+	margin: 0 0 0 .25em;
+	padding: 0 .6rem;
+	background-color: var(--inputbgColor);
+	color: var(--inputtextColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius0, 8px);
+	font-size: .9rem;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.cbi-filebrowser .btn + .btn {
+	margin-left: .25em;
+}
+
+.cbi-filebrowser > ul > li > .name {
+	flex: 10;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.cbi-filebrowser > ul > li > .mtime {
+	flex: 3;
+	text-align: right;
+}
+
+.cbi-filebrowser > ul > li > div:last-child > button {
+	margin: 1px 0 1px .25em;
+	padding: 0 .5em;
+}
+/* Cloudflared log tab uses a flat inline toolbar. */
+.node-vpn-cloudflared #view #logs {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.node-vpn-cloudflared #view #logs > label {
+	margin: 0;
+	white-space: nowrap;
+}
+
+.node-vpn-cloudflared #view #logs > select {
+	width: auto;
+	min-width: 8em;
+	max-width: 16em;
+	margin: 0 !important;
+}
+
+.node-vpn-cloudflared #view #logs > button {
+	margin: 0 !important;
+}
+
+.node-vpn-cloudflared #view #logs > textarea {
+	flex: 1 0 100%;
+	width: 100%;
+	margin-top: 8px;
+}
+/* System log view: the 25.12 view renders a 1001-row textarea and full-width
+ * filter selects.  Keep the compact Lua-style toolbar and a scrollable log. */
+.node-status-logs #view #content_syslog > div[style*="margin-bottom"] {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 10px !important;
+}
+
+.node-status-logs #view #content_syslog label {
+	margin: 0 !important;
+	white-space: nowrap;
+}
+
+.node-status-logs #view #content_syslog select {
+	width: auto;
+	min-width: 8em;
+	max-width: 18em;
+	margin: 0 !important;
+}
+
+.node-status-logs #view #content_syslog input[type="text"],
+.node-status-logs #view #content_syslog input[type="number"] {
+	width: auto;
+	min-width: 8em;
+	max-width: 16em;
+	margin: 0 !important;
+}
+
+.node-status-logs #view #syslog {
+	height: 500px !important;
+	max-height: 70vh;
+	overflow-y: auto;
+}
+
+#maincontent textarea {
+	max-height: 70vh;
+	overflow-y: auto;
+}
+/* ==========================================================================
+ * Lua-style action columns for process/startup tables
+ * ========================================================================== */
+.node-status-processes #view table > tr > th.theme-action-head,
+.node-system-startup #view table > tr > th.theme-action-head {
+	width: 1%;
+	padding: 10px 6px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.node-status-processes #view table > tr > td.theme-action-cell,
+.node-system-startup #view table > tr > td.theme-action-cell {
+	width: 1%;
+	padding: 13px 6px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.node-status-processes #view table > tr > td.theme-action-cell .cbi-button,
+.node-system-startup #view table > tr > td.theme-action-cell .cbi-button {
+	width: 80px;
+	min-width: 80px;
+	padding: 0 6px;
+}
+
+/* ==========================================================================
+ * Lua-style package manager layout
+ * ========================================================================== */
+.node-system-package-manager #view > .controls:not(:has(.pager)) {
+	display: block;
+	margin: 0 0 14px;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div {
+	display: flex;
+	align-items: center;
+	flex: none;
+	width: 100%;
+	padding: 8px 10px;
+	border-bottom: 1px solid var(--cbilineColor);
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div > label {
+	flex: 0 0 35%;
+	max-width: 35%;
+	padding-right: 10px;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .control-group {
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+	gap: 6px;
+	min-width: 0;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .control-group > input {
+	flex: 1 1 auto;
+	width: auto;
+	min-width: 0;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .cbi-progressbar {
+	flex: 0 1 300px;
+	width: 300px;
+	max-width: 100%;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div > div {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+#packages > tr > td.theme-package-action {
+	width: 10%;
+	text-align: right;
+	white-space: nowrap;
+}
+
+#packages .theme-remove-link {
+	display: inline;
+	width: auto;
+	height: auto;
+	padding: 0;
+	background: none !important;
+	border: 0 !important;
+	color: var(--activeColor) !important;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* The Cloudflared file path should read as an input with a pick action. */
+.node-vpn-cloudflared .open-file-browser::after {
+	content: "选择文件…";
+	flex: 0 0 auto;
+	margin-left: auto;
+	padding: 0 0 0 10px;
+	border-left: 1px solid var(--borderColor);
+	color: var(--activeColor);
+	font-size: .9rem;
+	white-space: nowrap;
+}
+/* The Lua startup page has the init-script table and the local rc.local
+ * editor stacked, not behind tabs. */
+.node-system-startup #view .cbi-tabmenu {
+	display: none;
+}
+
+.node-system-startup #view div[data-tab] {
+	display: block !important;
+	height: auto !important;
+	opacity: 1 !important;
+	overflow: visible !important;
+}
+
+.node-system-startup #view div[data-tab="rc"] {
+	margin-top: 20px;
+	padding-top: 10px;
+	border-top: 1px solid var(--cbilineColor);
+}
+
+.node-system-startup #view div[data-tab="rc"]::before {
+	content: "本地启动脚本";
+	display: block;
+	margin: 0 0 8px;
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: var(--textColor);
+}
+
+.node-system-startup #view div[data-tab="rc"] textarea {
+	height: 15rem;
+}
+/* Lua button palette for the split action columns. */
+.node-status-processes #view td.theme-action-cell .cbi-input-reload,
+.node-status-processes #view td.theme-action-cell .cbi-input-save,
+.node-system-startup #view td.theme-action-cell .cbi-input-reload,
+.node-system-startup #view td.theme-action-cell .cbi-input-save {
+	background-color: #337ab7 !important;
+	border-color: #337ab7 !important;
+	color: #fff !important;
+}
+
+.node-status-processes #view td.theme-action-cell .cbi-input-remove,
+.node-status-processes #view td.theme-action-cell .cbi-input-reset,
+.node-system-startup #view td.theme-action-cell .cbi-input-remove {
+	background-color: #617486 !important;
+	border-color: #617486 !important;
+	color: #fff !important;
+}
+
+.node-system-startup #view td.theme-action-cell .cbi-input-apply {
+	background-color: var(--activeColor) !important;
+	border-color: var(--activeColor) !important;
+	color: #fff !important;
+}
+@media screen and (max-width: 480px) {
+	.node-system-package-manager #view > .controls:not(:has(.pager)) > div {
+		flex-wrap: wrap;
+	}
+
+	.node-system-package-manager #view > .controls:not(:has(.pager)) > div > label {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 0 0 4px;
+		text-align: left;
+	}
+
+	.node-system-package-manager #view > .controls:not(:has(.pager)) .control-group {
+		flex: 1 1 100%;
+	}
+
+	.node-system-package-manager #view > .controls:not(:has(.pager)) .cbi-progressbar {
+		flex: 1 1 100%;
+		width: 100%;
+	}
+}
+/* Lay the package table out like the Lua page: operation column first,
+ * then name, version, size and description.  Flex rows keep the DOM order
+ * (and the core sorting/update logic) untouched. */
+#packages {
+	display: block;
+	width: 100%;
+	min-width: 760px;
+}
+
+#packages > tr {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border-bottom: 1px solid var(--cbilineColor);
+}
+
+#packages > tr > th,
+#packages > tr > td {
+	display: block;
+	padding: 10px 12px;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#packages > tr > th:first-child,
+#packages > tr > td:first-child {
+	flex: 0 0 28%;
+}
+
+#packages > tr > th:nth-child(2),
+#packages > tr > td:nth-child(2) {
+	flex: 0 0 18%;
+}
+
+#packages > tr > th:nth-child(3),
+#packages > tr > td:nth-child(3) {
+	flex: 0 0 10%;
+}
+
+#packages > tr > th:nth-child(4),
+#packages > tr > td:nth-child(4) {
+	flex: 1 1 34%;
+}
+
+#packages > tr > th:nth-child(5),
+#packages > tr > td:nth-child(5) {
+	order: -1;
+	flex: 0 0 10%;
+	text-align: left;
+}
+
+#packages > tr.table-titles,
+#packages > tr.cbi-section-table-titles {
+	background: var(--sectionbgColor2);
+}
+
+#packages > tr > th {
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+#packages > tr > th.cbi-section-actions {
+	order: -1;
+}
+/* ==========================================================================
+ * Readability / final polish
+ * ========================================================================== */
+.cbi-progressbar {
+	height: 17px;
+}
+
+.cbi-progressbar::after {
+	font-size: 12.5px;
+	line-height: 1.1;
+}
+
+/* Package manager disk row: full width bar plus a readable caption. */
+.node-system-package-manager #view .controls .theme-disk-bar {
+	flex: 1 1 auto;
+	width: auto;
+	min-width: 0;
+	height: 15px;
+}
+
+.node-system-package-manager #view .controls .theme-disk-bar::after {
+	content: none !important;
+}
+
+.node-system-package-manager #view .controls .theme-disk-caption {
+	flex: 1 1 100%;
+	width: 100%;
+	margin-top: 4px;
+	font-size: 12.5px;
+	line-height: 1.45;
+	color: var(--textColor);
+	white-space: normal;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .control-group {
+	gap: 8px;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .control-group > .btn,
+.node-system-package-manager #view > .controls:not(:has(.pager)) .control-group > button {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 0;
+	padding: 0 12px;
+}
+
+/* Cloudflared/FileUpload: the upstream widget is a normal .btn, not a
+ * full-width pseudo input. */
+.open-file-browser {
+	width: auto !important;
+	max-width: 100% !important;
+}
+
+.node-vpn-cloudflared .open-file-browser::after {
+	content: none !important;
+}
+
+/* Logout icon in the sidebar. */
+.main > .main-left > .nav > .slide > .menu2:before {
+	content: "\e005";
+	display: inline-block;
+	position: relative;
+	left: -10px;
+	top: 1px;
+	font-family: design !important;
+	font-weight: 700 !important;
+	font-size: 1.2rem !important;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+/* Final readability overrides (higher specificity than the layout rules). */
+.cbi-progressbar {
+	height: 18px;
+}
+
+.cbi-progressbar::after {
+	font-size: 13.5px;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .cbi-progressbar.theme-disk-bar {
+	flex: 1 1 auto !important;
+	width: auto !important;
+	min-width: 0;
+	height: 16px;
+}
+
+.node-system-package-manager #view .controls .theme-disk-caption {
+	font-size: 13.5px;
+}
+/* Firewall / routes harmonisation and installed-package column balance. */
+.node-network-firewall #view .cbi-section-actions {
+	width: 1% !important;
+	padding: 10px 6px !important;
+}
+
+.node-network-firewall #view .cbi-section-actions .btn {
+	padding: 0 8px;
+}
+
+.node-network-firewall #view .zonebadge {
+	font-size: .82rem;
+}
+
+.node-network-firewall #view .zone-forwards {
+	gap: 4px;
+}
+
+.node-network-routes #view .cbi-tabmenu {
+	margin-bottom: 10px;
+}
+
+#packages > tr > th:first-child,
+#packages > tr > td:first-child {
+	flex-basis: 32% !important;
+}
+
+#packages > tr > th:nth-child(2),
+#packages > tr > td:nth-child(2) {
+	flex-basis: 20% !important;
+}
+
+#packages > tr > th:nth-child(4),
+#packages > tr > td:nth-child(4) {
+	flex-basis: 28% !important;
+}
+.node-network-firewall #view .zonebadge {
+	padding: 2px 6px !important;
+	font-size: .78rem !important;
+}
+
+.node-network-firewall #view .zone-forwards {
+	flex-wrap: nowrap;
+	gap: 2px;
+}
+
+.node-network-firewall #view .cbi-section-actions .btn {
+	width: 64px;
+	padding: 0 4px;
+}
+.node-network-firewall #view .cbi-section-actions .cbi-button {
+	min-width: 0 !important;
+	width: 64px !important;
+}
+#packages > tr > td.theme-empty-cell {
+	flex: 1 1 100% !important;
+	padding: 24px 12px !important;
+	text-align: center !important;
+	color: var(--textColor);
+}
+.node-network-firewall #view .zone-forwards,
+.node-network-firewall #view .zone-dest {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.node-network-firewall #view .zonebadge {
+	white-space: nowrap;
+}
+/* Match the upstream FileUpload control: a compact .btn with auto width. */
+.open-file-browser {
+	display: inline-block !important;
+	height: 28px !important;
+	min-height: 28px !important;
+	line-height: 26px !important;
+	padding: 0 14px !important;
+	background: transparent !important;
+	border: 1px solid var(--borderColor) !important;
+	border-radius: 4px !important;
+	font-size: 13px !important;
+	vertical-align: middle;
+}
+
+.open-file-browser img {
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+}
+@media screen and (max-width: 480px) {
+	.cbi-progressbar {
+		height: 30px;
+	}
+
+	.cbi-progressbar::after {
+		white-space: normal;
+		line-height: 1.2;
+		padding: 2px 4px;
+	}
+}
+/* ==========================================================================
+ * Inline apply status (Lua-style, no modal / no full-screen overlay)
+ * ========================================================================== */
+#theme-apply-status {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 12px;
+	padding: 10px 12px;
+	background: var(--sectionbgColor2);
+	color: var(--textColor);
+	border: 1px solid var(--borderColor);
+	border-left: 3px solid var(--activeColor);
+	border-radius: var(--commonRadius0, 8px);
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+#theme-apply-status.show {
+	display: flex;
+}
+
+#theme-apply-status.success {
+	border-left-color: #67c23a;
+}
+
+#theme-apply-status .theme-apply-spinner {
+	width: 15px;
+	height: 15px;
+	flex: 0 0 15px;
+	border: 2px solid var(--borderColor);
+	border-top-color: var(--activeColor);
+	border-radius: 50%;
+	animation: theme-apply-spin .8s linear infinite;
+}
+
+#theme-apply-status .theme-apply-check {
+	color: #67c23a;
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+
+@keyframes theme-apply-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* Package disk: keep the caption inside the bar. */
+.node-system-package-manager #view .controls .theme-disk-caption {
+	display: none !important;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) .cbi-progressbar.theme-disk-bar {
+	flex: 1 1 auto !important;
+	width: auto !important;
+	height: 34px !important;
+}
+
+.node-system-package-manager #view .controls .theme-disk-bar::after {
+	content: attr(title) !important;
+	white-space: normal !important;
+	font-size: 13px !important;
+	line-height: 1.2 !important;
+	padding: 2px 6px !important;
+	text-align: center;
+}
+
+/* Compact package pager. */
+.node-system-package-manager #view .pager {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 10px 0;
+}
+
+.node-system-package-manager #view .pager .btn {
+	width: 28px !important;
+	min-width: 28px !important;
+	height: 28px !important;
+	padding: 0 !important;
+	line-height: 26px !important;
+	background: transparent !important;
+	color: var(--textColor) !important;
+	border: 1px solid var(--borderColor) !important;
+	border-radius: 4px !important;
+	box-shadow: none !important;
+}
+
+.node-system-package-manager #view .pager .btn:disabled {
+	opacity: .4;
+}
+
+.node-system-package-manager #view .pager .text {
+	padding: 0 8px;
+	font-size: 12.5px;
+	color: var(--textColor);
+}
+
+/* Package operation buttons: uniform secondary buttons. */
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div:nth-child(4) .control-group > .btn {
+	background: var(--inputbgColor) !important;
+	color: var(--textColor) !important;
+	border: 1px solid var(--borderColor) !important;
+	box-shadow: none !important;
+	font-weight: 400;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div:nth-child(4) .control-group > .btn:hover {
+	border-color: var(--activeColor) !important;
+	color: var(--activeColor) !important;
+}
+
+/* Logout: use a universally available power glyph instead of a private
+ * icon-font codepoint that is missing from some font builds. */
+.main > .main-left > .nav > .slide > .menu2:before {
+	content: "\23FB" !important;
+	font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif !important;
+	font-size: 1.05rem !important;
+	font-weight: 400 !important;
+	line-height: 1;
+	left: -10px;
+	top: 1px;
+}
+
+@media screen and (max-width: 480px) {
+	.node-system-package-manager #view > .controls:not(:has(.pager)) .cbi-progressbar.theme-disk-bar {
+		height: 50px !important;
+	}
+}
+.node-system-package-manager #view .pager .btn {
+	flex: 0 0 28px !important;
+}
+/* Logout icon as a mask so it never depends on an icon-font glyph. */
+.main > .main-left > .nav > .slide > .menu2:before {
+	content: "" !important;
+	display: inline-block;
+	width: 1.15rem;
+	height: 1.15rem;
+	position: relative;
+	left: -10px;
+	top: 2px;
+	background-color: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.66 3.34a1 1 0 0 1 1.41 0A9 9 0 1 1 4.93 5.34a1 1 0 1 1 1.41 1.41 7 7 0 1 0 9.9 0 1 1 0 0 1 1.42-1.41z'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.66 3.34a1 1 0 0 1 1.41 0A9 9 0 1 1 4.93 5.34a1 1 0 1 1 1.41 1.41 7 7 0 1 0 9.9 0 1 1 0 0 1 1.42-1.41z'/%3E%3C/svg%3E") center / contain no-repeat;
+	font-size: 0 !important;
+}
+/* ==========================================================================
+ * File upload / dynamic list / legacy action polish
+ * ========================================================================== */
+.theme-file-upload-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	max-width: 550px;
+}
+
+.theme-file-path {
+	flex: 1 1 auto;
+	width: auto !important;
+	min-width: 0;
+	height: 35px;
+	padding: 0 10px;
+	background: var(--inputbgColor);
+	color: var(--inputtextColor);
+	border: var(--inputBorder);
+	border-radius: var(--commonRadius0, 8px);
+	font-size: 13.5px;
+	cursor: text;
+	text-overflow: ellipsis;
+}
+
+.theme-file-browse {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	width: auto !important;
+	min-width: 0 !important;
+	height: 35px !important;
+	min-height: 35px !important;
+	padding: 0 12px !important;
+	background: var(--activeColor) !important;
+	border: 0 !important;
+	border-radius: var(--commonRadius0, 8px) !important;
+	color: #fff !important;
+	font-size: 13px !important;
+	line-height: 35px !important;
+	white-space: nowrap;
+}
+
+.theme-file-browse img {
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+}
+
+.cbi-dynlist > .item {
+	cursor: text;
+}
+
+.theme-dyn-item-input {
+	width: 100% !important;
+	height: 28px !important;
+	padding: 0 4px !important;
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	color: inherit !important;
+	font: inherit !important;
+}
+
+.theme-dyn-item-input:focus {
+	outline: none;
+}
+
+/* Page actions: same compact 80x35 buttons as the Lua pages. */
+#view .cbi-page-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid var(--cbilineColor);
+}
+
+#view .cbi-page-actions .cbi-button {
+	min-width: 80px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 12px;
+}
+
+/* Package operation buttons: same blue/green family as process actions. */
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div:nth-child(4) .control-group > .btn {
+	background: #337ab7 !important;
+	border: 0 !important;
+	color: #fff !important;
+}
+
+.node-system-package-manager #view > .controls:not(:has(.pager)) > div:nth-child(4) .control-group > .btn:hover {
+	background: #6a82ae !important;
+	color: #fff !important;
+}
+#view .cbi-page-actions {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 0;
+}
+
+#view .cbi-page-actions .cbi-button {
+	width: 80px !important;
+	min-width: 80px !important;
+	padding: 0 6px !important;
+	font-size: 13px;
+}
+
+#view .cbi-page-actions .cbi-button-apply {
+	width: 80px !important;
+}#theme-apply-status.error { border-left-color: #f56c6c; }
+#theme-apply-status .theme-apply-error { color: #f56c6c; font-size: 1.1rem; font-weight: 700; }
+.theme-file-upload-host {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	max-width: 550px;
+}
+
+.theme-file-upload-host > .theme-file-path {
+	flex: 1 1 0;
+}
+
+.theme-file-upload-host > .cbi-filebrowser {
+	flex: 1 0 100%;
+	width: 100%;
+	max-width: 100%;
+}
+
+.theme-file-upload-host > input[type="hidden"] {
+	display: none;
+}
+/* Compact apply status instead of a full-width bar. */
+#theme-apply-status {
+	display: inline-flex !important;
+	width: auto;
+	max-width: 100%;
+	margin: 0 0 10px;
+	padding: 6px 10px;
+	font-size: .92rem;
+	border-radius: 4px;
+}
+
+#theme-apply-status.show {
+	display: inline-flex !important;
+}
+
+#theme-apply-status .theme-apply-spinner {
+	width: 13px;
+	height: 13px;
+	flex-basis: 13px;
+}
+
+/* Package pager: text buttons instead of « ». */
+#view .pager .btn {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 80px !important;
+	height: 35px !important;
+	padding: 0 10px !important;
+	line-height: 33px !important;
+	background: var(--inputbgColor) !important;
+	color: var(--textColor) !important;
+	border: 1px solid var(--borderColor) !important;
+	border-radius: var(--commonRadius0, 8px) !important;
+	font-size: 13px !important;
+	box-shadow: none !important;
+}
+
+#view .pager .btn:hover:not(:disabled) {
+	border-color: var(--activeColor) !important;
+	color: var(--activeColor) !important;
+}
+
+/* Network edit modal: closer to the Lua full-page editor. */
+body.node-network-network #modal_overlay .modal.uci-dialog {
+	width: 96%;
+	max-width: 1100px;
+	max-height: 88vh;
+	overflow: auto;
+	margin: 3em auto;
+}
+
+body.node-network-network #modal_overlay .cbi-page-actions,
+body.node-network-network #modal_overlay .button-row {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+body.node-network-network #modal_overlay .cbi-button,
+body.node-network-network #modal_overlay .btn {
+	min-width: 80px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+}
+.node-system-package-manager #view .pager .btn {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 80px !important;
+	height: 35px !important;
+	padding: 0 10px !important;
+	line-height: 33px !important;
+	background: var(--inputbgColor) !important;
+	color: var(--textColor) !important;
+	border: 1px solid var(--borderColor) !important;
+	border-radius: var(--commonRadius0, 8px) !important;
+	font-size: 13px !important;
+}
+body.node-network-network #modal_overlay .modal {
+	width: 96% !important;
+	max-width: 1100px !important;
+	max-height: 88vh;
+	overflow: auto;
+	margin: 3em auto !important;
+}
+
+body.node-network-network #modal_overlay .cbi-button-apply,
+body.node-network-network #modal_overlay .cbi-button-save,
+body.node-network-network #modal_overlay .cbi-button-reset,
+body.node-network-network #modal_overlay .cbi-button {
+	min-width: 80px;
+	width: 80px;
+	padding: 0 8px;
+}
+/* Pager uses the same primary button style as Save & Apply. */
+.node-system-package-manager #view .pager .btn {
+	background: var(--activeColor) !important;
+	color: #fff !important;
+	border: 0 !important;
+}
+
+.node-system-package-manager #view .pager .btn:hover:not(:disabled) {
+	background: var(--activeColor) !important;
+	color: #fff !important;
+	opacity: .88;
+}
+
+/* Apply status: a single plain line, no card/bar. */
+#theme-apply-status {
+	display: inline-flex !important;
+	width: auto !important;
+	max-width: 100%;
+	margin: 0 0 8px;
+	padding: 0;
+	background: none !important;
+	border: 0 !important;
+	border-radius: 0;
+	font-size: .92rem;
+	line-height: 1.5;
+	color: var(--activeColor);
+	box-shadow: none;
+}
+
+#theme-apply-status.success {
+	color: #67c23a;
+}
+
+#theme-apply-status.error {
+	color: #f56c6c;
+}
+
+#theme-apply-status .theme-apply-check,
+#theme-apply-status .theme-apply-error {
+	font-size: 1rem;
+}
+
+/* Network edit as a full page, matching the Lua editor. */
+body.node-network-network #modal_overlay {
+	background: var(--bg) !important;
+}
+
+body.node-network-network #modal_overlay .modal {
+	width: 1099px !important;
+	max-width: calc(100% - 40px) !important;
+	min-height: calc(100vh - 100px);
+	max-height: none !important;
+	margin: 20px auto !important;
+	padding: 20px !important;
+	border-radius: var(--commonRadius1, 10px);
+	overflow: visible;
+}
+
+body.node-network-network #modal_overlay .modal .theme-network-title {
+	margin: 0 0 10px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--textColor);
+}
+
+body.node-network-network #modal_overlay .modal .cbi-map-descr {
+	margin-bottom: 12px;
+	color: var(--textColor);
+	opacity: .8;
+}
+/* Separate DHCP server card, mirroring the Lua editor. */
+body.node-network-network #modal_overlay .theme-network-dhcp {
+	margin-top: 16px;
+	padding: 14px 16px;
+	background: var(--sectionbgColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius0, 8px);
+}
+
+body.node-network-network #modal_overlay .theme-network-dhcp > h3 {
+	margin: 0 0 10px;
+	padding: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--textColor);
+}
+
+body.node-network-network #modal_overlay .theme-network-dhcp-pane {
+	display: block !important;
+	height: auto !important;
+	opacity: 1 !important;
+	overflow: visible !important;
+}
+
+body.node-network-network #modal_overlay .theme-network-dhcp .cbi-value {
+	padding: 8px 0;
+}
+
+body.node-network-network #modal_overlay .theme-network-dhcp .cbi-value-title {
+	width: 30%;
+}
+
+body.node-network-network #modal_overlay .button-row {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+body.node-network-network #modal_overlay .theme-return-overview {
+	margin-right: auto;
+	min-width: 104px;
+}
+body.node-network-network #modal_overlay .theme-network-general {
+	margin: 0 0 10px;
+	padding: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--textColor);
+}
+.node-network-eoip #view .cbi-button {
+	min-width: 80px;
+	height: 35px;
+	line-height: 33px;
+	padding: 0 10px;
+}
+/* When DHCP is ignored only the ignore switch remains; all DHCP tabs
+ * and all of their fields are hidden. */
+body.node-network-network #modal_overlay .theme-network-dhcp > .theme-dhcp-ignore {
+	display: flex !important;
+}
+
+
+
+/* Lua dark theme has no PNG arrow on native selects. */
+[data-theme="dark"] select,
+[data-theme="dark"] .cbi-input-select {
+	background-image: none !important;
+}
+
+body.node-network-network #modal_overlay .theme-network-dhcp.theme-dhcp-ignored #container\.dhcp\.lan\.general .cbi-value:not(.theme-dhcp-ignore) {
+	display: none !important;
+}
+/* Lua apply progress block: fieldset + panel title + loading icon. */
+#theme-apply-fieldset {
+	margin: 0 0 20px;
+}
+
+#theme-apply-fieldset .theme-apply-loading {
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	vertical-align: middle;
+}
+
+#theme-apply-fieldset #theme-apply-lua-status {
+	font-size: 14px;
+	vertical-align: middle;
+}
+#theme-apply-fieldset {
+	min-height: 75px;
+}
+#theme-apply-fieldset.theme-apply-error #theme-apply-lua-status {
+	color: #f56c6c;
+}
+/* Any page with a LuCI pager gets the same theme buttons. */
+#view .pager .btn,
+#maincontent .pager .btn {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 80px !important;
+	height: 35px !important;
+	padding: 0 10px !important;
+	line-height: 33px !important;
+	background: var(--activeColor) !important;
+	color: #fff !important;
+	border: 0 !important;
+	border-radius: var(--commonRadius0, 8px) !important;
+	font-size: 13px !important;
+}
+#maincontent .cbi-page-actions .cbi-button {
+	width: 80px !important;
+	min-width: 80px !important;
+	padding: 0 6px !important;
+	height: 35px;
+	line-height: 35px;
+}
+.theme-ipv4-address {
+	width: 100% !important;
+}
+
+.theme-ipv4-netmask .cbi-value-field input {
+	width: 100% !important;
+}
+.theme-ipv4-netmask .cbi-value-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.theme-ipv4-netmask .cbi-value-field input {
+	flex: 1 1 auto;
+	width: auto !important;
+}
+
+.theme-ipv4-add {
+	flex: 0 0 35px;
+	width: 35px !important;
+	min-width: 35px !important;
+	height: 35px !important;
+	padding: 0 !important;
+	line-height: 33px !important;
+}
+/* Network interface editor rendered inline instead of a modal. */
+#theme-inline-editor {
+	width: 1099px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+#theme-inline-editor .theme-network-title {
+	margin: 0 0 10px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--textColor);
+}
+
+#theme-inline-editor .cbi-map-descr {
+	margin-bottom: 12px;
+	color: var(--textColor);
+	opacity: .8;
+}
+
+#theme-inline-editor .theme-network-general,
+#theme-inline-editor .theme-network-dhcp > h3 {
+	margin: 0 0 10px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--textColor);
+}
+
+#theme-inline-editor .theme-network-dhcp {
+	margin-top: 16px;
+	padding: 14px 16px;
+	background: var(--sectionbgColor);
+	border: 1px solid var(--borderColor);
+	border-radius: var(--commonRadius0, 8px);
+}
+
+#theme-inline-editor .theme-network-dhcp-pane {
+	display: block !important;
+	height: auto !important;
+	opacity: 1 !important;
+	overflow: visible !important;
+}
+
+#theme-inline-editor .theme-network-dhcp.theme-dhcp-ignored #container\.dhcp\.lan\.general .cbi-value:not(.theme-dhcp-ignore) {
+	display: none !important;
+}
+
+#theme-inline-editor .button-row {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 16px;
+	padding-top: 12px;
+	border-top: 1px solid var(--cbilineColor);
+}
+
+#theme-inline-editor .theme-return-overview {
+	margin-right: auto;
+	min-width: 104px;
+}
+
+#theme-inline-editor .button-row .cbi-button {
+	min-width: 80px;
+	width: 80px;
+	height: 35px;
+	padding: 0 8px;
+}
+.theme-ipv4-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.theme-ipv4-field .theme-ipv4-address {
+	flex: 1 1 auto;
+	width: auto !important;
+}
+
+.theme-ipv4-netmask .cbi-value-field {
+	display: block;
+}
+
+.theme-ipv4-netmask .cbi-value-field input {
+	width: 100% !important;
+}
+/* Keep the core DOM contract (button, filebrowser, hidden), reorder only visually. */
+.theme-file-upload-host > .theme-file-path {
+	order: 0;
+	flex: 1 1 auto;
+}
+
+.theme-file-upload-host > .theme-file-browse {
+	order: 1;
+}
+
+.theme-file-upload-host > .cbi-filebrowser {
+	order: 2;
+}
+.theme-ipv4-field {
+	display: block !important;
+}
+
+.theme-ipv4-input-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.theme-ipv4-input-row .theme-ipv4-address {
+	flex: 1 1 auto;
+	width: auto !important;
+}
+
+.theme-ipv4-field > .cbi-dynlist {
+	display: block !important;
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: 100% !important;
+}
+.theme-ipv4-input-row {
+	width: 100%;
+	max-width: 550px;
+}
+.theme-ipv4-input-row .theme-ipv4-address {
+	min-width: 0 !important;
+	width: 0 !important;
+	flex: 1 1 auto;
+}
+/* Network diagnostics: equal table columns, one-line input + action. */
+.node-network-diagnostics #view table.table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.node-network-diagnostics #view table.table td.td.left {
+	padding: 8px;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+.node-network-diagnostics #view table.table td.td.left > input {
+	width: calc(100% - 168px);
+	margin: 0;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+.node-network-diagnostics #view .diag-action {
+	display: inline-block;
+	width: 160px;
+	margin-left: 8px;
+	vertical-align: middle;
+}
+
+.node-network-diagnostics #view .diag-action > .cbi-dropdown,
+.node-network-diagnostics #view .diag-action > .cbi-button {
+	width: 100% !important;
+	min-width: 0 !important;
+	margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.node-network-diagnostics #view table.table,
+	.node-network-diagnostics #view table.table tbody,
+	.node-network-diagnostics #view table.table tr,
+	.node-network-diagnostics #view table.table td.td.left {
+		display: block;
+		width: 100%;
+	}
+
+	.node-network-diagnostics #view table.table td.td.left {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 6px 0;
+	}
+
+	.node-network-diagnostics #view table.table td.td.left > input {
+		flex: 1 1 auto;
+		width: auto;
+	}
+
+	.node-network-diagnostics #view .diag-action {
+		flex: 0 0 160px;
+		width: 160px;
+		margin-left: 0;
+	}
+}
+.node-network-diagnostics #view table.table td.td.left {
+	display: flex !important;
+	align-items: center;
+	gap: 8px;
+}
+
+.node-network-diagnostics #view table.table td.td.left > input {
+	flex: 1 1 auto;
+	width: auto !important;
+	min-width: 0 !important;
+	margin: 0 !important;
+}
+
+.node-network-diagnostics #view .diag-action {
+	flex: 0 0 160px;
+	width: 160px;
+	margin-left: 0;
+}
+/* Diagnostics cells stay in a real table; flex lives on an inner row. */
+.node-network-diagnostics #view table.table td.td.left {
+	display: table-cell !important;
+	padding: 8px;
+	vertical-align: middle;
+}
+
+.node-network-diagnostics #view .theme-diag-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+}
+
+.node-network-diagnostics #view .theme-diag-row > input {
+	flex: 1 1 auto;
+	width: auto !important;
+	min-width: 0 !important;
+	margin: 0 !important;
+}
+
+.node-network-diagnostics #view .theme-diag-row .diag-action {
+	flex: 0 0 160px;
+	width: 160px;
+	margin-left: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.node-network-diagnostics #view table.table td.td.left {
+		display: block !important;
+		width: 100%;
+	}
+}
+.node-network-diagnostics #view .theme-diag-row .diag-action {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+
+.node-network-diagnostics #view .theme-diag-select {
+	flex: 0 0 80px;
+	width: 80px !important;
+	min-width: 80px !important;
+	height: 35px !important;
+	margin: 0 !important;
+	padding: 0 8px !important;
+	font-size: 13px !important;
+}
+
+.node-network-diagnostics #view .theme-diag-run {
+	flex: 0 0 80px;
+	width: 80px !important;
+	min-width: 80px !important;
+	height: 35px !important;
+	margin: 0 !important;
+	padding: 0 6px !important;
+}
+.node-network-diagnostics #view .theme-diag-select {
+	color: var(--textColor) !important;
+	background: var(--inputbgColor) !important;
+}
+
+.node-network-diagnostics #view .diag-action .cbi-button {
+	text-transform: none !important;
+}
+.theme-cron-help {
+	margin-bottom: 16px;
+	padding: 14px 16px;
+	line-height: 1.8;
+}
+
+.theme-cron-help h3 {
+	margin: 0 0 8px;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.theme-cron-help p {
+	margin: 6px 0;
+}
+
+.theme-cron-help code {
+	display: inline-block;
+	max-width: 100%;
+	padding: 1px 5px;
+	background: var(--inputbgColor);
+	border: 1px solid var(--borderColor);
+	border-radius: 4px;
+	font-family: monospace;
+	font-size: 12.5px;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+/* Diagnostics controls share one height and one visual language. */
+.node-network-diagnostics #view .theme-diag-row {
+	gap: 8px;
+}
+
+.node-network-diagnostics #view .theme-diag-row > input {
+	height: 35px !important;
+	line-height: 33px !important;
+}
+
+.node-network-diagnostics #view .theme-diag-row .diag-action {
+	flex: 0 0 164px;
+	width: 164px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.node-network-diagnostics #view .theme-diag-select,
+.node-network-diagnostics #view .theme-diag-run {
+	flex: 0 0 80px;
+	width: 80px !important;
+	min-width: 80px !important;
+	height: 35px !important;
+	margin: 0 !important;
+	font-size: 13px !important;
+	border-radius: 6px !important;
+}
+
+.node-network-diagnostics #view .theme-diag-select {
+	appearance: none;
+	-webkit-appearance: none;
+	padding: 0 22px 0 8px !important;
+	color: var(--textColor) !important;
+	background-color: var(--inputbgColor) !important;
+	border: 1px solid var(--borderColor) !important;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2376838f' stroke-width='1.5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 7px center;
+	background-size: 10px 6px;
+}
+
+.node-network-diagnostics #view .theme-diag-run {
+	padding: 0 4px !important;
+	line-height: 35px !important;
+}
+
+.node-network-diagnostics #view .diag-action > .cbi-button {
+	width: 100% !important;
+}
+/* Match the Lua diagnostics layout: input on top, protocol/button below. */
+.node-network-diagnostics #view .theme-diag-row {
+	display: block !important;
+	width: 100%;
+}
+
+.node-network-diagnostics #view .theme-diag-row > input {
+	width: 100% !important;
+	height: 35px !important;
+	line-height: 33px !important;
+	margin: 0 0 6px !important;
+}
+
+.node-network-diagnostics #view .theme-diag-row .diag-action {
+	display: flex !important;
+	align-items: center;
+	justify-content: flex-start;
+	flex: none !important;
+	width: auto !important;
+	gap: 6px;
+}
+
+.node-network-diagnostics #view .theme-diag-select {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 86px !important;
+	height: 35px !important;
+	padding: 0 24px 0 9px !important;
+	font-size: 13px !important;
+}
+
+.node-network-diagnostics #view .theme-diag-run {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 90px !important;
+	height: 35px !important;
+	padding: 0 14px !important;
+	line-height: 35px !important;
+}
+
+.node-network-diagnostics #view .diag-action > .cbi-button:not(.theme-diag-run) {
+	width: auto !important;
+	min-width: 90px !important;
+	padding: 0 14px !important;
+}
+.node-network-diagnostics #view .theme-diag-select {
+	text-align: center !important;
+	text-align-last: center !important;
+	padding-left: 24px !important;
+	padding-right: 24px !important;
+}
+.node-network-diagnostics #view .theme-diag-select {
+	line-height: 35px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	vertical-align: middle !important;
+}
+
+.node-network-diagnostics #view .theme-diag-select option {
+	text-align: center !important;
+	text-align-last: center !important;
+	line-height: 35px !important;
+	padding: 0 !important;
+}
+/* Custom centered diagnostics selector (closed button and open menu). */
+.node-network-diagnostics #view table.table td.td.left {
+	overflow: visible !important;
+}
+
+.node-network-diagnostics #view .theme-diag-select-wrap {
+	position: relative;
+	flex: 0 0 86px;
+	width: 86px;
+	height: 35px;
+}
+
+.node-network-diagnostics #view .theme-diag-select {
+	display: block !important;
+	width: 100% !important;
+	min-width: 0 !important;
+	height: 35px !important;
+	line-height: 35px !important;
+	padding: 0 24px !important;
+	margin: 0 !important;
+	text-align: center !important;
+	text-align-last: center !important;
+	vertical-align: middle !important;
+	border-radius: 6px !important;
+}
+
+.node-network-diagnostics #view .theme-diag-menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	overflow: hidden;
+	background: var(--sectionbgColor);
+	border: 1px solid var(--borderColor);
+	border-radius: 6px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+
+.node-network-diagnostics #view .theme-diag-menu[hidden] {
+	display: none !important;
+}
+
+.node-network-diagnostics #view .theme-diag-option {
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: var(--textColor);
+	font-size: 13px;
+	text-align: center;
+	text-align-last: center;
+	cursor: pointer;
+}
+
+.node-network-diagnostics #view .theme-diag-option:hover,
+.node-network-diagnostics #view .theme-diag-option.selected {
+	background: var(--activeColor);
+	color: #fff;
+}
+.node-network-diagnostics #view .theme-diag-menu {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+.node-network-diagnostics #view .theme-diag-option:hover {
+	background: transparent !important;
+	color: var(--activeColor) !important;
+}
+
+.node-network-diagnostics #view .theme-diag-option:not(.selected) {
+	background: transparent !important;
+}
+/* Mouse hover is the selection highlight; unselected idle items stay transparent. */
+.node-network-diagnostics #view .theme-diag-option:hover {
+	background: var(--activeColor) !important;
+	color: #fff !important;
+}
+
+.node-network-diagnostics #view .theme-diag-option.selected {
+	background: var(--activeColor) !important;
+	color: #fff !important;
+}
+/* The dropdown panel itself has a surface; only the hovered row is highlighted. */
+.node-network-diagnostics #view .theme-diag-menu {
+	background: var(--sectionbgColor) !important;
+	border: 1px solid var(--borderColor) !important;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, .18) !important;
+}
+
+.node-network-diagnostics #view .theme-diag-option {
+	background: transparent !important;
+	color: var(--textColor) !important;
+}
+
+.node-network-diagnostics #view .theme-diag-option.selected {
+	background: transparent !important;
+	color: var(--textColor) !important;
+	font-weight: 600;
+}
+
+.node-network-diagnostics #view .theme-diag-option:hover {
+	background: var(--activeColor) !important;
+	color: #fff !important;
+}
+/* Network editor is the intact LuCI modal subtree, presented as a page.
+   Keeping the subtree in place preserves the form.Map class instance so
+   Save / Save & Apply actually persist changes. */
+body.theme-network-page {
+	overflow: hidden;
+}
+
+body.theme-network-page #view {
+	visibility: hidden;
+}
+
+body.theme-network-page #modal_overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: block !important;
+	overflow: auto;
+	padding: 16px 0;
+	background: var(--background, var(--bodybgColor, #f5f5f5));
+}
+
+body.theme-network-page #modal_overlay .modal {
+	width: 1099px;
+	max-width: calc(100% - 32px);
+	margin: 0 auto;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	transform: none;
+}

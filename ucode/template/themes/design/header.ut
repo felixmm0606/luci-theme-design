@@ -1,0 +1,388 @@
+{#
+	Material is a clean HTML5 theme for LuCI. It is based on luci-theme-bootstrap and MUI
+
+	luci-theme-material
+	Copyright 2015 Lutty Yang <lutty@wcan.in>
+
+	luci-theme-neobird
+	Copyright 2021 2smile <thinktip@gmail.com>
+	
+	luci-theme-design
+	Copyright 2023 2smile <gngppz@gmail.com>
+
+	Have a bug? Please create an issue here on GitHub!
+	https://github.com/gngpp/luci-theme-design
+
+	luci-theme-bootstrap:
+	Copyright 2008 Steven Barth <steven@midlink.org>
+	Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
+	Copyright 2012 David Menting <david@nut-bolt.nl>
+
+	MUI:
+	https://github.com/muicss/mui
+
+	Licensed to the public under the Apache License 2.0
+-#}
+
+{%
+	import { getuid, getpwnam, getspnam, uname } from 'luci.core';
+	import { access, stat } from 'fs';
+	import { cursor } from 'uci';
+
+	const boardinfo = ubus.call('system', 'board');
+
+	http.prepare_content('text/html; charset=UTF-8');
+
+	/* Cache-bust theme assets when the package is upgraded. */
+	const css_mtime = stat(`/www${media}/css/style.css`)?.mtime ?? 0;
+	const js_mtime = stat(`/www${media}/js/apply.js`)?.mtime ?? 0;
+	const script_mtime = stat(`/www${media}/js/script.js`)?.mtime ?? 0;
+	const asset_version = (css_mtime > js_mtime
+		? (css_mtime > script_mtime ? css_mtime : script_mtime)
+		: (js_mtime > script_mtime ? js_mtime : script_mtime)) || version.luciversion;
+
+	/* luci.sys.hostname() == nixio.uname().nodename */
+	const hostname = uname()?.nodename ?? boardinfo?.hostname ?? '?';
+
+	/* luci.sys.user.getuser("root") / luci.sys.user.getpasswd("root") */
+	const root_user = getpwnam('root');
+	const root_password = getspnam('root')?.pwdp ?? root_user?.passwd;
+
+	/* Custom settings - provided by luci-app-design-config */
+	const ucicursor = cursor();
+
+	let mode = 'normal';
+	let navbar = 'display';
+	let navbar_proxy = 'shadowsocksr';
+
+	if (access('/etc/config/design')) {
+		mode = ucicursor.get_first('design', 'global', 'mode');
+		navbar = ucicursor.get_first('design', 'global', 'navbar');
+		navbar_proxy = ucicursor.get_first('design', 'global', 'navbar_proxy');
+	}
+
+	/* dispatcher context - mirrors luci.dispatcher.context / disp.node() */
+	const controller = dispatcher.build_url();
+	const tree = dispatcher.menu_json();
+
+	const request = ctx.path ?? [];
+	const category = request[0];
+	const cattree = category ? tree.children?.[category] : null;
+
+	/*
+	 * On the login page the ucode dispatcher resolves the default first child
+	 * (admin/status/overview) and exposes it as `dispatched`, unlike the Lua
+	 * dispatcher which left it nil.  Using it would leak " - Overview" into
+	 * the document title and add an "Overview" body class to the login form.
+	 */
+	const node = length(request) ? dispatched : null;
+
+	/* the title suffix of the <title> element */
+	const page_title = (node != null && node.title != null) ? ` - ${_(node.title)}` : '';
+
+	/*
+	 * Body classes are assembled in code on purpose: ucode strips spaces and
+	 * tabs immediately in front of a {% tag, so `class="lang_.. {% if .."`
+	 * would glue the tokens together (lang_enOverviewlogged-in) and break
+	 * script.js' logged-in detection.
+	 */
+	let body_class = 'lang_' + dispatcher.lang;
+
+	if (node != null)
+		body_class += ' ' + striptags(node.title ?? '');
+
+	if (ctx.authsession)
+		body_class += ' logged-in';
+
+	/* tag all nodes leading to this page */
+	let c = tree;
+
+	for (let r in request) {
+		if (c?.children?.[r]) {
+			c = c.children[r];
+			c._menu_selected = true;
+		}
+	}
+
+	/* luci.dispatcher.node_visible() */
+	const node_visible = (nd) => !!(nd?.satisfied !== false && nd?.title && length(nd.title) && nd.action &&
+		nd.hidden != true && !(nd.action.type == 'firstchild' && !length(nd.children ?? {})));
+
+	/* luci.dispatcher.node_childs(): order ascending, default 100 */
+	const node_childs = (nd) => {
+		const childs = [];
+
+		if (!nd)
+			return childs;
+
+		const children = nd.children ?? {};
+
+		for (let name, child in children)
+			if (node_visible(child))
+				push(childs, name);
+
+		return sort(childs, (a, b) => ((children[a].order ?? 100) - (children[b].order ?? 100)) ||
+			(a < b ? -1 : (a > b ? 1 : 0)));
+	};
+
+	const nodeurl = (prefix, name, query) => {
+		let url = `${controller}${prefix}${name}/`;
+
+		if (query)
+			url = url + http.build_querystring(query);
+
+		return entityencode(url, true);
+	};
+
+	/*
+	 * Pre-compute the tab chain of the recursive Lua subtree() helper.
+	 * Only the selected child is descended into, so a single walk of the
+	 * selected branch yields the same <ul class="tabs"> blocks in the same
+	 * order, without any recursion.
+	 */
+	const tab_levels = [];
+
+	if (cattree != null) {
+		let prefix = `/${category}/`;
+		let tabnode = cattree;
+		let level = 1;
+
+		while (tabnode != null) {
+			const childs = node_childs(tabnode);
+
+			if (!length(childs))
+				break;
+
+			let selected_node = null;
+			let selected_name = null;
+
+			for (let v in childs) {
+				const nnode = tabnode.children[v];
+
+				if (nnode._menu_selected) {
+					selected_node = nnode;
+					selected_name = v;
+				}
+			}
+
+			if (level > 2)
+				push(tab_levels, { prefix: prefix, node: tabnode, childs: childs });
+
+			if (selected_node == null)
+				break;
+
+			prefix = `${prefix}${selected_name}/`;
+			tabnode = selected_node;
+			level++;
+		}
+	}
+
+	/*
+	 * Count pending uci changes. The Lua template counted the distinct
+	 * (config, section, option) triples of uci:changes(); the ucode uci
+	 * cursor returns one change record per triple instead, so dedupe them
+	 * to keep the very same number.
+	 */
+	const count_uci_changes = () => {
+		const seen = {};
+		let count = 0;
+
+		for (let conf, records in (ucicursor.changes() ?? {}))
+			for (let rec in records) {
+				const key = `${conf}/${rec[1]}/${rec[2] ?? ''}`;
+
+				if (!exists(seen, key)) {
+					seen[key] = true;
+					count++;
+				}
+			}
+
+		return count;
+	};
+
+	/*
+	 * The Lua template gated the counter on tree.nodes[category].ucidata.
+	 * In Lean's LuCI this flag is set on the "admin" node only, which is
+	 * the only value category can take here, so a non-null cattree is the
+	 * exact ucode equivalent (the ucode menu tree does not carry ucidata).
+	 */
+	const ucichanges = cattree ? count_uci_changes() : 0;
+-%}
+<!DOCTYPE html>
+<html lang="{{ dispatcher.lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <link rel="manifest" href="{{ media }}/manifest.json">
+    <title>{{ striptags((hostname ?? '?') + page_title) }} - LuCI</title>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-page-mode" content="app">
+    <meta name="browsermode" content="application">
+    <meta name="msapplication-tap-highlight" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="application-name" content="{{ striptags(hostname ?? '?') }}">
+    <meta name="apple-mobile-web-app-title" content="{{ striptags(hostname ?? '?') }}">
+    <meta name="msapplication-TileImage" content="{{ media }}/images/icon.png"/>
+    <link rel="icon" href="{{ media }}/images/icon.png">
+    <link rel="apple-touch-icon" href="{{ media }}/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes" /> 
+    <link rel="stylesheet" href="{{ media }}/css/style.css?v={{ asset_version }}">
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+
+    <link rel="shortcut icon" href="{{ media }}/favicon.ico">
+    {% if (node?.css): %}
+        <link rel="stylesheet" href="{{ resource }}/{{ node.css }}">
+    {% endif %}
+    {% if (css): %}
+        <style title="text/css">
+            {{ css }}
+        </style>
+    {% endif %}
+	<script src="{{ dispatcher.build_url('admin/translations', dispatcher.lang) }}"></script>
+	<script src="{{ resource }}/cbi.js"></script>
+	<script src="{{ media }}/js/jquery.min.js?v={{ asset_version }}"></script>
+	<script src="{{ media }}/js/design.js?v={{ asset_version }}"></script>
+</head>
+
+<body class="{{ body_class }}"
+	{% if (mode != 'normal'): %}
+	data-theme = "{{ mode }}"
+	{% endif %}
+	>
+
+<header>
+	{% if (mode == 'normal'): %}
+	<script>
+		function setTheme() {
+			let color_scheme = window.matchMedia('(prefers-color-scheme: dark)');
+			document.body.setAttribute('data-theme', color_scheme.matches? 'dark': 'light');
+		}
+		setTheme();
+		window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+	</script>	
+	{% endif %}
+	
+{% if (navbar == 'display'): %}
+<style>
+	:root {
+		--vssrBottom: 50px;
+	}
+</style>
+<div class="navbar">
+{% else %}
+<style>
+	:root {
+		--vssrBottom: 0px;
+	}
+</style>
+<div class="navbar" style="display: none;">
+{% endif %}
+  <a href="/cgi-bin/luci/admin/status/overview"><img src="{{ media }}/images/home.png" /></a>
+  {% if (navbar_proxy == 'openclash'): %}
+  <a href="/cgi-bin/luci/admin/services/{{ navbar_proxy }}"><img src="{{ media }}/images/{{ navbar_proxy }}.png" /></a>
+  {% else %}
+  <a href="/cgi-bin/luci/admin/services/{{ navbar_proxy }}"><img src="{{ media }}/images/ssr.png" /></a>
+  {% endif %}	
+  <a href="/cgi-bin/luci/admin/network/network"><img src="{{ media }}/images/link.png" /></a>
+  <a href="/cgi-bin/luci/admin/status/realtime"><img src="{{ media }}/images/rank.png" /></a>
+  <a href="/cgi-bin/luci/admin/system/admin"><img src="{{ media }}/images/user.png" /></a>
+</div>
+
+
+<div class="container">
+	<span class="showSide"></span>
+	<a class="brand" href="#">{{ hostname ?? 'OpenWrt' }}</a>
+		<div class="pull-right">
+		<script>
+			if ($(window).width() > 992) {
+        		$("header>.container>.brand").css("padding", "0 0px")
+	    	}
+		</script>
+		{% if (cattree != null): %}
+			{% if (ucichanges > 0): %}
+			<style>
+				.notice:after {
+    				 	content: "{{ ucichanges }}";
+    			 	font-size: 0.8rem;
+    			 	font-family: Tahoma;
+    			 	position: absolute;
+    			 	top: -5px;
+    			 	font-weight: normal !important;
+				}
+			</style>
+			<a id="notice_status" class="label notice" href="{{ dispatcher.build_url(category, 'uci/changes') }}?redir={{ http.urlencode(http.formvalue('redir') ?? join('/', ctx.request_path ?? [])) }}">&#xe739;</a>
+			{% endif %}
+			<span id="xhr_poll_status" style="display:none" onclick="XHR.running() ? XHR.halt() : XHR.run()">
+				<span class="label success" id="xhr_poll_status_on"><span id="refresh_on" class="mobile-hide">&#xe6b9;</span></span>
+				<span class="label" id="xhr_poll_status_off" style="display:none"><span id="refresh_off" class="mobile-hide">&#xe6b9;</span></span>
+			</span>
+		{% endif %}
+		</div>
+		</div>
+</header>
+
+ <div class="main">
+	 <div class="main-left">
+		 <ul class="nav">
+			 {% const childs = node_childs(cattree); %}
+			 {% if (length(childs)): %}
+			 {% for (let r in childs): %}
+			 {%
+				const nnode = cattree.children[r];
+				const href = `${controller}/${category}/${r}` + (nnode.query ? http.build_querystring(nnode.query) : '');
+				const grandchildren = node_childs(nnode);
+			 %}
+			 {% if (length(grandchildren)): %}
+			 <li class="slide">
+				 <a class="menu" data-title="{{ entityencode(striptags(nnode.title), true) }}" href="#">{{ entityencode(striptags(_(nnode.title)), true) }}</a>
+				 <ul class="slide-menu">
+					 {% for (let s in grandchildren): %}
+					 {%
+						const snode = nnode.children[s];
+						const shref = `${controller}${category}/${r}/${s}` + (snode.query ? http.build_querystring(snode.query) : '');
+					 %}
+					 <li><a data-title="{{ entityencode(striptags(snode.title), true) }}" href="{{ entityencode(shref, true) }}">{{ entityencode(striptags(_(snode.title)), true) }}</a></li>
+					 {% endfor %}
+				 </ul>
+			 </li>
+			 {% else %}
+			 <li class="slide">
+				 <a class="menu2" data-title="{{ entityencode(striptags(nnode.title), true) }}" href="{{ entityencode(href, true) }}">{{ entityencode(striptags(_(nnode.title)), true) }}</a>
+			 </li>
+			 {% endif %}
+			 {% endfor %}
+			 {% endif %}
+		 </ul>
+	 </div>
+	 <div class="main-right">
+		 <div class="darkMask"></div>
+		 <div id="maincontent">
+			 <div class="container">
+				 {% if (getuid() == 0 && root_user != null && !root_password): %}
+					 <div class="alert-message warning">
+						 <h4>{{ _('No password set!') }}</h4>
+						 {{ _('There is no password set on this router. Please configure a root password to protect the web interface and enable SSH.') }}<br>
+						 <a href="{{ entityencode(dispatcher.build_url('admin/system/admin'), true) }}">{{ _('Go to password configuration...') }}</a>
+					 </div>
+				 {% endif %}
+				 {% for (let tab in tab_levels): %}
+				 <ul class="tabs">
+				 {% for (let v in tab.childs): %}
+				 {% const tnode = tab.node.children[v]; %}
+			<li class="tabmenu-item-{{ v }}{% if (tnode._menu_selected || (tab.node.leaf && v == request[length(request) - 1])): %} active{% endif %}">
+			    <a href="{{ nodeurl(tab.prefix, v, tnode.query) }}">{{ striptags(_(tnode.title)) }}</a>
+			</li>
+				 {% endfor %}
+				 </ul>
+				 {% endfor %}
+
+    <script>
+            // thanks for Jo-Philipp Wich <jow@openwrt.org>
+            var luciLocation = {{ sprintf('%J', ctx.path) }};
+    </script>  
+    <script src="{{ media }}/js/script.js?v={{ asset_version }}"></script>
