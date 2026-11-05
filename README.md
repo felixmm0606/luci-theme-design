@@ -8,9 +8,9 @@
 
 `luci-theme-design` 是一个针对移动端和 PC 端沉浸式 WebApp 体验进行优化的 OpenWrt LuCI 主题。
 
-- 基于 `luci-theme-neobird` 二次开发，适用于 [LEDE](https://github.com/coolsnowwolf/lede)。
+- 基于 `luci-theme-neobird` 二次开发。在完成 ucode 架构重构后，原生适用于官方 OpenWrt 23.05+、ImmortalWrt 以及所有采用现代 ucode-based LuCI 的 OpenWrt 发行版及衍生固件。
 - 模板已迁移到 ucode（`ucode/template/themes/design/*.ut`），**不再依赖 `luci-lua-runtime`**。
-- 需要支持 ucode 模板的 LuCI（OpenWrt 23.05 及以上或 LuCI master）。
+- 需要支持 ucode 模板的 LuCI（官方 OpenWrt 23.05 及以上、ImmortalWrt 或 LuCI master）。
 - 登录页由主题自带的 `ucode/template/themes/design/sysauth.ut` 提供，沿用主题 CSS 需要的 `fieldset`、`cbi-input-user`、`cbi-input-password` 结构。
 - JS 分支由 [papagaye744](https://github.com/papagaye744) 维护。
 
@@ -30,8 +30,8 @@
 
 | 分支 | 模板引擎 | 运行时依赖 | 说明 |
 | --- | --- | --- | --- |
-| `ucode` (推荐) | ucode (`.ut`) | `luci-base` | 适用于 OpenWrt 23.05+ / LuCI master |
-| `main` | Lua (`.htm`) | `luci-lua-runtime` | 旧版，适用于 LEDE / 早期 OpenWrt |
+| `ucode` (推荐) | ucode (`.ut`) | `luci-base` | 适用于官方 OpenWrt 23.05+、ImmortalWrt 及现代 LuCI master 架构 |
+| `main` | Lua (`.htm`) | `luci-lua-runtime` | 旧版，适用于早期基于 Lua 的 OpenWrt 18.06 / 旧版 LEDE 固件 |
 | `js` | — | — | 由 [papagaye744](https://github.com/papagaye744) 维护 |
 
 ## 技术说明
